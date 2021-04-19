@@ -151,4 +151,8 @@ export class Vector<T> {
   public size() {
     return this._size;
   }
+
+  public data() {
+    return Array.from(this);
+  }
 }

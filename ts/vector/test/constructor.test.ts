@@ -101,4 +101,8 @@ describe('vector constructor', () => {
 
     deepEqual([1, 42, 1, 1], Array.from(v));
   });
+
+  it('data', () => {
+    deepEqual([1, 1, 1, 1], new Vector<number>(4, 1).data());
+  });
 });
