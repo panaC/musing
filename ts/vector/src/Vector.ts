@@ -1,3 +1,5 @@
+import * as assert from 'assert';
+
 interface INode<T> {
   data: T;
   next: INode<T> | null;
@@ -40,7 +42,17 @@ export class Vector<T> {
     ++this._size;
   }
 
-  // TODO: iter
+  *[Symbol.iterator]() {
+    assert.ok(
+      !((this._head && !this._tail) || (!this._head && this._tail)),
+      'tail ^ head === false'
+    );
+    let ptr = this._head;
+    while (ptr) {
+      yield ptr.data;
+      ptr = ptr.next;
+    }
+  }
 
   public empty() {
     return this._size === 0;

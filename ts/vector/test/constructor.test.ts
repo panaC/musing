@@ -1,5 +1,5 @@
 import Vector from '../src/';
-import {equal} from 'assert';
+import {strictEqual as equal, deepStrictEqual as deepEqual} from 'assert';
 
 describe('vector constructor', () => {
   it('empty initialization', () => {
@@ -27,7 +27,7 @@ describe('vector constructor', () => {
   });
 
   it('vector test content init', () => {
-    equal(
+    deepEqual(
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       Array.from(new Vector<number>(10, 1))
     );
