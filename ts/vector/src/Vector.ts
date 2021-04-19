@@ -196,4 +196,33 @@ export class Vector<T> {
   public data() {
     return Array.from(this);
   }
+
+  public copy(): Vector<T> {
+    return Vector.copy(this);
+  }
+
+  static copy<T>(v: Vector<T>): Vector<T> {
+    const newV = new Vector<T>();
+
+    for (const data of v) {
+      newV.push_front(data);
+    }
+
+    return newV;
+  }
+
+  static importFromArray<T>(arr: T[]) {
+    const v = new Vector<T>();
+
+    for (const el of arr) {
+      v.push_back(el);
+    }
+
+    return v;
+  }
+
+  static init<T>(len: number, fn: (i: number) => T) {
+    const data = Array.from({length: len}, (_, i) => fn(i));
+    return Vector.importFromArray(data);
+  }
 }

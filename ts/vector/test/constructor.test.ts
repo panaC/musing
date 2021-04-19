@@ -121,4 +121,27 @@ describe('vector constructor', () => {
 
     deepEqual([], Array.from(v));
   });
+
+  it('copy', () => {
+    const v = new Vector<number>(10, 1);
+    const copy = v.copy();
+
+    deepEqual(Array.from(copy), Array.from(Vector.copy(v)));
+
+    throws(() => equal(Vector.copy(v), Vector.copy(v)));
+  });
+
+  it('import from array', () => {
+    deepEqual(Array.from(Vector.importFromArray([1, 2, 3, 4, 5])), [
+      1,
+      2,
+      3,
+      4,
+      5,
+    ]);
+  });
+
+  it('static init', () => {
+    deepEqual(Array.from(Vector.init(5, i => i + 1)), [1, 2, 3, 4, 5]);
+  });
 });
