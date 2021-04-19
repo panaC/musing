@@ -225,4 +225,8 @@ export class Vector<T> {
     const data = Array.from({length: len}, (_, i) => fn(i));
     return Vector.importFromArray(data);
   }
+
+  public toJSON() {
+    return this.data();
+  }
 }

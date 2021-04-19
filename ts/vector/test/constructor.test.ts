@@ -144,4 +144,11 @@ describe('vector constructor', () => {
   it('static init', () => {
     deepEqual(Array.from(Vector.init(5, i => i + 1)), [1, 2, 3, 4, 5]);
   });
+
+  it('json', () => {
+    equal(
+      JSON.stringify([1, 2, 3, 4, 5]),
+      JSON.stringify(Vector.init(5, i => i + 1))
+    );
+  });
 });
