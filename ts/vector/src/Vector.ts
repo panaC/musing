@@ -126,6 +126,8 @@ export class Vector<T> {
 
     if (prevPtr) prevPtr.next = node;
     if (ptr) ptr.prev = node;
+
+    ++this._size;
   }
 
   public erase(i: number) {
@@ -141,14 +143,17 @@ export class Vector<T> {
       ptr = ptr.next;
       --i;
     }
-    const nextPtr = ptr?.next;
-
-    if (prevPtr) prevPtr.next = ptr;
-    if (nextPtr) nextPtr.prev = prevPtr;
 
     if (ptr) {
+      const nextPtr = ptr?.next;
+
+      if (prevPtr) prevPtr.next = ptr;
+      if (nextPtr) nextPtr.prev = prevPtr;
+
       ptr.next = null;
       ptr.prev = null;
+
+      --this._size;
       return ptr;
     }
 

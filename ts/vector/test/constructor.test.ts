@@ -86,6 +86,12 @@ describe('vector constructor', () => {
     equal(1, v.pull_front());
   });
 
+  it('pull front list size', () => {
+    const v = new Vector<number>(3, 1);
+    v.pull_front();
+    equal(2, v.size());
+  });
+
   it('pull back empty list', () => {
     throws(() => new Vector().pull_back());
   });
@@ -95,11 +101,24 @@ describe('vector constructor', () => {
     equal(1, v.pull_back());
   });
 
+  it('pull back list size', () => {
+    const v = new Vector<number>(3, 1);
+    v.pull_back();
+    equal(2, v.size());
+  });
+
   it('insert', () => {
     const v = new Vector<number>(3, 1);
     v.insert(1, 42);
 
     deepEqual([1, 42, 1, 1], Array.from(v));
+  });
+
+  it('insert size', () => {
+    const v = new Vector<number>(3, 1);
+    v.insert(1, 42);
+
+    equal(4, v.length);
   });
 
   it('data', () => {
@@ -111,6 +130,20 @@ describe('vector constructor', () => {
     v.erase(1);
 
     deepEqual([1, 1], Array.from(v));
+  });
+
+  it('erase length', () => {
+    const v = new Vector<number>(3, 1);
+    v.erase(1);
+
+    equal(2, v.length);
+  });
+
+  it('erase size', () => {
+    const v = new Vector<number>(3, 1);
+    v.erase(1);
+
+    equal(2, v.size());
   });
 
   it('clear', () => {
