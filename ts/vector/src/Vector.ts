@@ -128,6 +128,47 @@ export class Vector<T> {
     if (ptr) ptr.prev = node;
   }
 
+  public erase(i: number) {
+    assert.ok(i >= 0 && i < this._size, 'index not in vector range');
+
+    if (i === 0) return this.pull_front();
+    if (i + 1 === this._size) return this.pull_back();
+
+    let prevPtr = null;
+    let ptr = this._head;
+    while (ptr && i > 0) {
+      prevPtr = ptr;
+      ptr = ptr.next;
+      --i;
+    }
+    const nextPtr = ptr?.next;
+
+    if (prevPtr) prevPtr.next = ptr;
+    if (nextPtr) nextPtr.prev = prevPtr;
+
+    if (ptr) {
+      ptr.next = null;
+      ptr.prev = null;
+      return ptr;
+    }
+
+    throw new Error('unexpected error');
+  }
+
+  public clear() {
+    let ptr = this._head;
+    while (ptr) {
+      const n = ptr;
+      ptr = ptr.next;
+      n.next = null;
+      n.prev = null;
+    }
+
+    this._head = null;
+    this._tail = null;
+    this._size = 0;
+  }
+
   *[Symbol.iterator]() {
     assert.ok(
       !((this._head && !this._tail) || (!this._head && this._tail)),

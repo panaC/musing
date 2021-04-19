@@ -105,4 +105,20 @@ describe('vector constructor', () => {
   it('data', () => {
     deepEqual([1, 1, 1, 1], new Vector<number>(4, 1).data());
   });
+
+  it('erase', () => {
+    const v = new Vector<number>(3, 1);
+    v.erase(1);
+
+    deepEqual([1, 1], Array.from(v));
+  });
+
+  it('clear', () => {
+    const v = new Vector<number>(3, 1);
+
+    deepEqual([1, 1, 1], Array.from(v));
+    v.clear();
+
+    deepEqual([], Array.from(v));
+  });
 });
