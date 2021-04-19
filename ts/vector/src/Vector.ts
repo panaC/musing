@@ -104,6 +104,30 @@ export class Vector<T> {
     throw new Error('unexpected error');
   }
 
+  public insert(i: number, data: T) {
+    assert.ok(i >= 0 && i < this._size, 'index not in vector range');
+
+    if (i === 0) this.push_front(data);
+    if (i + 1 === this._size) this.push_back(data);
+
+    let prevPtr = null;
+    let ptr = this._head;
+    while (ptr && i > 0) {
+      prevPtr = ptr;
+      ptr = ptr.next;
+      --i;
+    }
+
+    const node: INode<T> = {
+      data,
+      prev: prevPtr,
+      next: ptr,
+    };
+
+    if (prevPtr) prevPtr.next = node;
+    if (ptr) ptr.prev = node;
+  }
+
   *[Symbol.iterator]() {
     assert.ok(
       !((this._head && !this._tail) || (!this._head && this._tail)),

@@ -94,4 +94,11 @@ describe('vector constructor', () => {
     const v = new Vector<number>(3, 1);
     equal(1, v.pull_back());
   });
+
+  it('insert', () => {
+    const v = new Vector<number>(3, 1);
+    v.insert(1, 42);
+
+    deepEqual([1, 42, 1, 1], Array.from(v));
+  });
 });
