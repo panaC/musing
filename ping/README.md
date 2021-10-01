@@ -10,4 +10,6 @@ man 2 socket : https://developer.apple.com/library/archive/documentation/System/
 
 man 3 getprotoent : https://www.man7.org/linux/man-pages/man3/getprotoent.3.html
 
-`cat /etc/protocols | grep icmpz`
+`cat /etc/protocols | grep icmp`
+
+socket.h mac : https://opensource.apple.com/source/xnu/xnu-6153.81.5/bsd/sys/socket.h.auto.html
