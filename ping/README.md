@@ -46,3 +46,8 @@ struct sockaddr_storage {
 
 
 https://www.tutorialspoint.com/unix_sockets/socket_structures.htm
+
+
+FQDN : https://www.networksolutions.com/blog/establish/domains/what-is-a-fully-qualified-domain-name--fqdn--
+
+How to translate a domain to ip-address ?
