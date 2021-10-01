@@ -6,3 +6,5 @@
 **/*.swp
 
 **/build
+
+**/*.DS_Store
