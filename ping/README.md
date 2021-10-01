@@ -13,3 +13,6 @@ man 3 getprotoent : https://www.man7.org/linux/man-pages/man3/getprotoent.3.html
 `cat /etc/protocols | grep icmp`
 
 socket.h mac : https://opensource.apple.com/source/xnu/xnu-6153.81.5/bsd/sys/socket.h.auto.html
+
+https://www.cloudflare.com/en-gb/learning/ddos/glossary/internet-control-message-protocol-icmp/
+https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol
