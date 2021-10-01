@@ -50,6 +50,22 @@ struct sockaddr_storage {
 https://www.tutorialspoint.com/unix_sockets/socket_structures.htm
 
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk/usr/include/netinet/in.h
+
+```
+/*
+ * Socket address, internet style.
+ */
+struct sockaddr_in {
+	__uint8_t       sin_len;
+	sa_family_t     sin_family;
+	in_port_t       sin_port;
+	struct  in_addr sin_addr;
+	char            sin_zero[8];
+};
+```
+
+
 FQDN : https://www.networksolutions.com/blog/establish/domains/what-is-a-fully-qualified-domain-name--fqdn--
 
 How to translate a domain to ip-address ?
