@@ -126,14 +126,6 @@ Echo or Echo Reply Message
 
    Sequence Number
 
-
-[Page 14]
-
-September 1981
-RFC 792
-
-
-
       If code = 0, a sequence number to aid in matching echos and
       replies, may be zero.
 
