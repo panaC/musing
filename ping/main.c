@@ -33,7 +33,12 @@ int main(int argc, char **argv) {
   // sockaddr.sa_data = (void*) serv_addr;
  
 
-  char buffer[64] = {0};
+  char buffer[256] = {0};
+  
+  // number in buffer is the total data sent
+  // sento write at the beggining of the buffer the IP ICMP Header !
+  //
+  // why the ping command write 64 byte to the buffer ? 
 
   ssize_t size = sendto(fd, buffer, sizeof(buffer), 0, (struct sockaddr*) &serv_addr, sizeof(serv_addr));
 
