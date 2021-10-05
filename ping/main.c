@@ -43,5 +43,8 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
+
+  // IT works ! an ICMP packet is send to 128.128.128.128
+  //
 }
 
