@@ -144,3 +144,27 @@ Echo or Echo Reply Message
       Code 0 may be received from a gateway or a host.
 
 ```
+
+example `ping 128.128.128.128` :
+
+with `sudo tcpdump -X icmp`
+
+```
+11:38:40.238926 IP 192.168.1.106 > 128.128.128.128: ICMP echo request, id 15912, seq 0, length 64
+        0x0000:  0090 27fe eb80 a078 1770 569a 0800 4500  ..'....x.pV...E.
+        0x0010:  0054 6fb4 0000 4001 47e2 c0a8 016a 8080  .To...@.G....j..
+        0x0020:  8080 0800 ab32 3e28 0000 615c 1d20 0003  .....2>(..a\....
+        0x0030:  a522 0809 0a0b 0c0d 0e0f 1011 1213 1415  ."..............
+        0x0040:  1617 1819 1a1b 1c1d 1e1f 2021 2223 2425  ...........!"#$%
+        0x0050:  2627 2829 2a2b 2c2d 2e2f 3031 3233 3435  &'()*+,-./012345
+        0x0060:  3637   
+```
+
+`0800 ab32 3e28 0000` : 
+	- type 8
+	- code 0
+	- checksum 0xab32
+	- identifier 0x3e28 : maybe 0
+	- sequence number 0x0000 : maybe 0
+	- description : lot of data without documentation. Is it needed ? I don't think so
+
