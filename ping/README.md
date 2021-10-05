@@ -165,6 +165,26 @@ with `sudo tcpdump -X icmp`
 * code 0
 * checksum 0xab32
 * identifier 0x3e28 : maybe 0
-* sequence number 0x0000 : maybe 0
+* sequence number 0x0000 : maybe 0 -> sequence incrementation start at 0
 * description : lot of data without documentation. Is it needed ? I don't think so
+
+
+example `ping 8.8.8.8` :
+
+```
+12:12:01.371448 IP dns.google > 192.168.1.106: ICMP echo reply, id 40232, seq 4, length 64
+        0x0000:  a078 1770 569a 0090 27fe eb80 0800 4500  .x.pV...'.....E.
+        0x0010:  0054 0000 0000 7101 7787 0808 0808 c0a8  .T....q.w.......
+        0x0020:  016a 0000 7c4a 9d28 0004 615c 24f1 0005  .j..|J.(..a\$...
+        0x0030:  7533 0809 0a0b 0c0d 0e0f 1011 1213 1415  u3..............
+        0x0040:  1617 1819 1a1b 1c1d 1e1f 2021 2223 2425  ...........!"#$%
+        0x0050:  2627 2829 2a2b 2c2d 2e2f 3031 3233 3435  &'()*+,-./012345
+        0x0060:  3637
+```
+
+`0000 7c4a 9d28 0004`
+* type 0 : echo reply
+* code 0
+
+
 
