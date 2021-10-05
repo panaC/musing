@@ -161,10 +161,10 @@ with `sudo tcpdump -X icmp`
 ```
 
 `0800 ab32 3e28 0000` : 
-	- type 8
-	- code 0
-	- checksum 0xab32
-	- identifier 0x3e28 : maybe 0
-	- sequence number 0x0000 : maybe 0
-	- description : lot of data without documentation. Is it needed ? I don't think so
+	* type 8
+	* code 0
+	* checksum 0xab32
+	* identifier 0x3e28 : maybe 0
+	* sequence number 0x0000 : maybe 0
+	* description : lot of data without documentation. Is it needed ? I don't think so
 
