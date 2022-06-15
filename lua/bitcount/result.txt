@@ -1,0 +1,68 @@
+1       power of 2
+2       power of 2
+4       power of 2
+8       power of 2
+16      power of 2
+32      power of 2
+64      power of 2
+128     power of 2
+256     power of 2
+512     power of 2
+1024    power of 2
+2048    power of 2
+4096    power of 2
+8192    power of 2
+16384   power of 2
+32768   power of 2
+65536   power of 2
+131072  power of 2
+262144  power of 2
+524288  power of 2
+1048576 power of 2
+2097152 power of 2
+4194304 power of 2
+8388608 power of 2
+16777216        power of 2
+33554432        power of 2
+67108864        power of 2
+134217728       power of 2
+268435456       power of 2
+536870912       power of 2
+
+real    0m0.318s
+user    0m0.316s
+sys     0m0.001s
+1 is a power of 2
+2 is a power of 2
+4 is a power of 2
+8 is a power of 2
+16 is a power of 2
+32 is a power of 2
+64 is a power of 2
+128 is a power of 2
+256 is a power of 2
+512 is a power of 2
+1024 is a power of 2
+2048 is a power of 2
+4096 is a power of 2
+8192 is a power of 2
+16384 is a power of 2
+32768 is a power of 2
+65536 is a power of 2
+131072 is a power of 2
+262144 is a power of 2
+524288 is a power of 2
+1048576 is a power of 2
+2097152 is a power of 2
+4194304 is a power of 2
+8388608 is a power of 2
+16777216 is a power of 2
+33554432 is a power of 2
+67108864 is a power of 2
+134217728 is a power of 2
+268435456 is a power of 2
+536870912 is a power of 2
+
+real    0m0.415s
+user    0m0.362s
+sys     0m0.002s
