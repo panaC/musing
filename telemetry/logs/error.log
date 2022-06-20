@@ -1,0 +1,5 @@
+2022/06/20 11:12:23 [error] 8#8: *1 lua entry thread aborted: runtime error: /lua/8081.lua:7: Expected object key string but found invalid token at character 2
+stack traceback:
+coroutine 0:
+	[C]: in function 'decode'
+	/lua/8081.lua:7: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8081"
