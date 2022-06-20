@@ -17,6 +17,8 @@ docker run \
 
 docker exec myresty "bash" "-c" "opm get jkeys089/lua-resty-hmac"
 
+docker exec myresty "bash" "-c" "opm get openresty/lua-resty-mysql"
+
 docker exec myresty "bash" "-c" "opm list"
 
 docker ps
