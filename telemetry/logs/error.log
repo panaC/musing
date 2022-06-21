@@ -1,0 +1,93 @@
+2022/06/21 15:27:38 [notice] 74#74: signal process started
+2022/06/21 15:28:05 [notice] 76#76: signal process started
+2022/06/21 15:30:36 [notice] 78#78: signal process started
+2022/06/21 15:30:38 [error] 79#79: *10 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
+	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:30:41 [error] 79#79: *11 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
+	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:30:44 [notice] 80#80: signal process started
+2022/06/21 15:30:46 [error] 81#81: *12 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
+	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:31:20 [notice] 82#82: signal process started
+2022/06/21 15:31:22 [error] 83#83: *13 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
+	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:31:36 [error] 83#83: *14 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
+	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:31:38 [notice] 84#84: signal process started
+2022/06/21 15:32:42 [notice] 86#86: signal process started
+2022/06/21 15:32:44 [error] 87#87: *16 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:32:47 [error] 87#87: *17 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:32:50 [notice] 88#88: signal process started
+2022/06/21 15:32:54 [error] 89#89: *18 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:33:18 [notice] 91#91: signal process started
+2022/06/21 15:33:24 [notice] 94#94: signal process started
+2022/06/21 15:33:26 [error] 95#95: *19 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:33:26 [error] 95#95: *19 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:34 [notice] 97#97: signal process started
+2022/06/21 15:34:37 [error] 98#98: *20 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:39 [error] 98#98: *21 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:40 [error] 98#98: *22 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:41 [error] 98#98: *23 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:52 [error] 98#98: *24 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:54 [error] 98#98: *25 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:54 [error] 98#98: *26 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:55 [error] 98#98: *27 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:34:57 [error] 98#98: *28 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:35:01 [notice] 100#100: signal process started
+2022/06/21 15:35:03 [error] 101#101: *29 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:35:33 [error] 101#101: *30 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:35:34 [error] 101#101: *31 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:35:41 [notice] 103#103: signal process started
+2022/06/21 15:35:43 [error] 104#104: *32 failed to load external Lua file "/lua/script.lua": /lua/script.lua:3: '<eof>' expected near 'local', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:36:00 [error] 104#104: *33 failed to load external Lua file "/lua/script.lua": /lua/script.lua:3: '<eof>' expected near 'local', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:45:03 [notice] 105#105: signal process started
+2022/06/21 15:45:05 [error] 106#106: *34 failed to load external Lua file "/lua/script.lua": /lua/script.lua:3: '<eof>' expected near 'local', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:45:13 [notice] 107#107: signal process started
+2022/06/21 15:45:14 [error] 108#108: *35 lua entry thread aborted: runtime error: /lua/script.lua:3: attempt to perform arithmetic on a string value
+stack traceback:
+coroutine 0:
+	/lua/script.lua: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:45:16 [error] 108#108: *36 lua entry thread aborted: runtime error: /lua/script.lua:3: attempt to perform arithmetic on a string value
+stack traceback:
+coroutine 0:
+	/lua/script.lua: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:45:59 [notice] 109#109: signal process started
+2022/06/21 15:46:01 [error] 110#110: *37 lua entry thread aborted: runtime error: /lua/script.lua:3: bad argument #1 to 'log' (number expected, got nil)
+stack traceback:
+coroutine 0:
+	[C]: in function 'log'
+	/lua/script.lua:3: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:46:23 [notice] 111#111: signal process started
+2022/06/21 15:46:25 [error] 112#112: *38 lua entry thread aborted: runtime error: /lua/script.lua:3: bad argument #2 to 'format' (number expected, got nil)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:3: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:50:09 [notice] 113#113: signal process started
+2022/06/21 15:50:11 [error] 114#114: *39 lua entry thread aborted: runtime error: /lua/script.lua:3: bad argument #1 to 'log' (number expected, got nil)
+stack traceback:
+coroutine 0:
+	[C]: in function 'log'
+	/lua/script.lua:3: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 15:53:56 [notice] 115#115: signal process started
+2022/06/21 15:57:39 [notice] 117#117: signal process started
