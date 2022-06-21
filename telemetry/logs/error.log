@@ -91,3 +91,62 @@ coroutine 0:
 	/lua/script.lua:3: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
 2022/06/21 15:53:56 [notice] 115#115: signal process started
 2022/06/21 15:57:39 [notice] 117#117: signal process started
+2022/06/21 16:12:33 [notice] 119#119: signal process started
+2022/06/21 16:12:46 [error] 120#120: *55 failed to load external Lua file "/lua/script.lua": /lua/script.lua:42: 'end' expected (to close 'if' at line 38) near 'return', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:13:05 [notice] 121#121: signal process started
+2022/06/21 16:13:10 [error] 122#122: *56 failed to load external Lua file "/lua/script.lua": cannot open /lua/script.lua: No such file or directory, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:13:31 [notice] 123#123: signal process started
+2022/06/21 16:13:39 [notice] 126#126: signal process started
+2022/06/21 16:13:40 [error] 127#127: *57 failed to load external Lua file "/lua/script.lua": /lua/script.lua:50: 'then' expected near '!', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:15:04 [notice] 128#128: signal process started
+2022/06/21 16:15:21 [error] 129#129: *59 lua entry thread aborted: runtime error: /lua/script.lua:51: bad argument #2 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:51: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:16:25 [notice] 130#130: signal process started
+2022/06/21 16:16:28 [error] 131#131: *60 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
+stack traceback:
+coroutine 0:
+	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
+	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
+	/lua/script.lua:52: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:39:10 [notice] 132#132: signal process started
+2022/06/21 16:42:43 [notice] 134#134: signal process started
+2022/06/21 16:44:11 [notice] 136#136: signal process started
+2022/06/21 16:45:56 [notice] 138#138: signal process started
+2022/06/21 16:54:25 [emerg] 140#140: directive "error_log" is not terminated by ";" in /etc/nginx/conf.d/nginx.conf:4
+2022/06/21 16:54:32 [notice] 141#141: signal process started
+2022/06/21 16:54:36 [notice] 142#142: *66 [lua] script.lua:4: Authorization: EDRLAB rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:54:36 [notice] 142#142: *66 [lua] script.lua:13: Authorization key: rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:54:36 [notice] 142#142: *66 [lua] script.lua:51: hmac key (06890f022f2ec5df84589713e90242d9290e4850) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 16:54:36 [info] 142#142: *66 client 172.17.0.1 closed keepalive connection
+2022/06/21 17:00:50 [emerg] 143#143: invalid log level "stderr" in /etc/nginx/conf.d/nginx.conf:2
+2022/06/21 17:03:08 [notice] 144#144: signal process started
+2022/06/21 17:03:10 [error] 145#145: *67 [lua] script.lua:51: hmac key (06890f022f2ec5df84589713e90242d9290e4850) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:05:01 [emerg] 146#146: unknown log format "debug" in /etc/nginx/conf.d/nginx.conf:3
+2022/06/21 17:05:48 [notice] 147#147: signal process started
+2022/06/21 17:05:51 [notice] 148#148: *68 [lua] script.lua:4: Authorization: EDRLAB rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:05:51 [notice] 148#148: *68 [lua] script.lua:13: Authorization key: rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:05:51 [error] 148#148: *68 [lua] script.lua:51: hmac key (06890f022f2ec5df84589713e90242d9290e4850) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:11:45 [error] 148#148: *69 lua entry thread aborted: runtime error: /lua/8081.lua:7: bad argument #1 to 'decode' (string expected, got nil)
+stack traceback:
+coroutine 0:
+	[C]: in function 'decode'
+	/lua/8081.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8081"
+2022/06/21 17:11:47 [error] 148#148: *70 lua entry thread aborted: runtime error: /lua/8081.lua:7: bad argument #1 to 'decode' (string expected, got nil)
+stack traceback:
+coroutine 0:
+	[C]: in function 'decode'
+	/lua/8081.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET /erwer HTTP/1.1", host: "localhost:8081"
+2022/06/21 17:11:47 [error] 148#148: *71 lua entry thread aborted: runtime error: /lua/8081.lua:7: bad argument #1 to 'decode' (string expected, got nil)
+stack traceback:
+coroutine 0:
+	[C]: in function 'decode'
+	/lua/8081.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/erwer"
+2022/06/21 17:15:31 [notice] 148#148: *76 [lua] script.lua:4: Authorization: EDRLAB rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:15:31 [notice] 148#148: *76 [lua] script.lua:13: Authorization key: rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:15:31 [error] 148#148: *76 [lua] script.lua:51: hmac key (4821f05cf54aaae81aaab53df3d8b2f07c049ba1) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:4: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:13: Authorization key: 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:57: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
