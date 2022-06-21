@@ -150,3 +150,78 @@ coroutine 0:
 2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:4: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
 2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:13: Authorization key: 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
 2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:57: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:19:49 [notice] 149#149: signal process started
+2022/06/21 17:19:51 [notice] 150#150: *78 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:19:51 [notice] 150#150: *78 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:19:51 [error] 150#150: *78 lua entry thread aborted: runtime error: /lua/script.lua:62: Expected object key string but found invalid token at character 2
+stack traceback:
+coroutine 0:
+	[C]: in function 'decode'
+	/lua/script.lua:62: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:20:29 [notice] 150#150: *79 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:20:29 [notice] 150#150: *79 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:20:29 [error] 150#150: *79 lua entry thread aborted: runtime error: /lua/script.lua:62: Expected object key string but found invalid token at character 2
+stack traceback:
+coroutine 0:
+	[C]: in function 'decode'
+	/lua/script.lua:62: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:20:34 [notice] 151#151: signal process started
+2022/06/21 17:20:35 [notice] 152#152: *80 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:20:35 [notice] 152#152: *80 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:20:35 [notice] 152#152: *80 [lua] script.lua:62: data {timestamp:2022-06-21T17:14:45.929Z}, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:20:35 [error] 152#152: *80 lua entry thread aborted: runtime error: /lua/script.lua:63: Expected object key string but found invalid token at character 2
+stack traceback:
+coroutine 0:
+	[C]: in function 'decode'
+	/lua/script.lua:63: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:26:14 [notice] 152#152: *81 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:26:14 [error] 152#152: *81 [lua] script.lua:52: hmac key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9) doesn't match with authorization key (4821f05cf54aaae81aaab53df3d8b2f07c049ba1), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:62: data {"timestamp":"2022-06-21T17:14:45.929Z"}, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:71: timestamp 2022-06-21T17:14:45.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:27:30 [notice] 152#152: *83 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:27:30 [error] 152#152: *83 [lua] script.lua:52: hmac key (4821f05cf54aaae81aaab53df3d8b2f07c049ba1) doesn't match with authorization key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:62: data {"timestamp":"2022-06-21T17:14:45.929Z"}, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:71: timestamp 2022-06-21T17:14:45.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:11:33 [notice] 153#153: signal process started
+2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:62: data: '{"timestamp":"2022-06-21T17:14:45.929Z"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:71: timestamp 2022-06-21T17:14:45.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:76: currentTime (1655838695), time (1655831685), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:12:13 [notice] 154#154: *86 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:12:13 [error] 154#154: *86 [lua] script.lua:52: hmac key (4ce26084fb69f607ef9412c6e80f5403d021045e) doesn't match with authorization key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:5: Authorization: EDRLAB 4ce26084fb69f607ef9412c6e80f5403d021045e, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:62: data: '{"timestamp":"2022-06-21T21:12:12.929Z"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:71: timestamp 2022-06-21T21:12:12.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:76: currentTime (1655838749), time (1655845932), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:23:41 [notice] 155#155: signal process started
+2022/06/21 21:23:57 [error] 156#156: *88 failed to load external Lua file "/lua/script.lua": /lua/script.lua:132: unexpected symbol near '[', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:24:41 [notice] 157#157: signal process started
+2022/06/21 21:24:42 [error] 158#158: *89 failed to load external Lua file "/lua/script.lua": /lua/script.lua:133: unexpected symbol near 'if', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:04 [notice] 159#159: signal process started
+2022/06/21 21:28:08 [warn] 160#160: *90 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:08 [notice] 160#160: *90 [lua] script.lua:26: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:08 [error] 160#160: *90 [lua] script.lua:73: hmac key (51bd39a65882f1871974db762428f0620a6996f7) doesn't match with authorization key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:26: Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:79: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:83: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:92: timestamp 2022-06-21T21:22:59.201Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:97: currentTime (1655846934), time (1655846579), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:105: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:127: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:28:54 [error] 160#160: *91 [lua] script.lua:141: bad result: Incorrect datetime value: '2022-06-21T21:22:59.201Z' for column `telemetry`.`logs`.`os_ts` at row 1 : 1292 : 22007, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:26: Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:79: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:83: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:92: timestamp 2022-06-21T21:22:59.201Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:97: currentTime (1655846944), time (1655846579), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:105: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:127: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/21 21:29:04 [error] 160#160: *93 [lua] script.lua:141: bad result: Incorrect datetime value: '2022-06-21T21:22:59.201Z' for column `telemetry`.`logs`.`os_ts` at row 1 : 1292 : 22007, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"

@@ -4,4 +4,4 @@ curl -H "Authorization: EDRLAB " -v http://localhost:8090
 curl -H "Authorization: EDRLAB rocks" -v http://localhost:8090
 
 
-curl -H "Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1" -d "{"timestamp":"2022-06-21T17:14:45.929Z"}" -v http://localhost:8090
+curl -H "Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7" -d '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}' -v http://localhost:8090
