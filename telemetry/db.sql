@@ -14,6 +14,7 @@ create table if not exists logs (
   current_version varchar(64) not null,
   prev_version varchar(64) not null,
   new_install boolean not null,
+  error text,
   primary key(id)
   );
 

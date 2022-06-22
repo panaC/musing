@@ -50,21 +50,14 @@ end
 
 ngx.req.read_body();
 local data = ngx.req.get_body_data(); -- return lua string instead table
+print(string.format("data: '%s'", data));
 if data == nil or data == '' then
   ngx.status = ngx.HTTP_BAD_REQUEST;
   ngx.say("ERROR: No body available");
   return ngx.exit(ngx.OK);
 end
 
-local ok = hmac_sha1:update(data)
-if not ok then
-	ngx.log(ngx.ERR, "failed to add body data to hmac");
-  ngx.status = ngx.HTTP_INTERNAL_SERVER_ERROR;
-  return ngx.exit(ngx.OK);
-end
-
-local hmacKey = hmac_sha1:final(nil, true);
-
+local hmacKey = hmac_sha1:final(data, true);
 if not hmac_sha1:reset() then
 	ngx.log(ngx.ERR, "failed to reset hmac");
 end
@@ -80,7 +73,6 @@ print("Authorization OK");
 
 -- check timestamp
 
-print(string.format("data: '%s'", data));
 local json = cjson.decode(data);
 local ts = json["timestamp"];
 if not ts then
@@ -95,6 +87,10 @@ local y, m, d, h, M, s, n = ts:match("^(.*)-(.*)-(.*)T(.*):(.*):(.*)%.(.*)Z$");
 local time = os.time{year=y, month=m, day=d, hour=h, min=M, sec=s};
 local currentTime = os.time(os.date("!*t"));
 print(string.format("currentTime (%s), time (%s)", currentTime, time));
+
+-- https://mariadb.com/kb/en/timestamp/
+local tsDbFormated = string.format("%d-%d-%d %d:%d:%d", y, m, d, h, M, s);
+--
 
 if currentTime - time > 60 * 60 then
   ngx.status = ngx.HTTP_BAD_REQUEST;
@@ -122,18 +118,29 @@ if not ok then
   return ngx.exit(ngx.OK);
 end
 
--- add a key check
+-- add a keys check
+if not type(json["os_version"]) == "string" and
+  not type(json["locale"]) == "string" and
+  not type(json["fresh"]) == "boolean" and
+  not (json["type"] == "poll" or json["type"] == "error") and
+  not type(json["current_version"]) == "string" and
+  not type(json["prev_version"]) == "string" then
+
+  ngx.status = ngx.HTTP_BAD_REQUEST;
+  ngx.say("ERROR: body json");
+  return ngx.exit(ngx.OK);
+end
 
 print("connected to mysql");
 
 local osVersion = json["os_version"];
 local locale = json["locale"];
-local osTs = json["timestamp"]; -- TODO fix mariadb timestamp format
-local freshInstall = tostring(json["fresh"]); -- boolean
-local entryType = json["type"] == "poll" and "poll" or "error";
+local osTs = tsDbFormated;
+local freshInstall = json["fresh"] and '1' or '0'; -- boolean
+local entryType = json["type"]; -- poll or error
 local currentVersion = json["current_version"];
 local previousVersion = json["prev_version"];
-local newInstall = previousVersion == "null" and "true" or "false";
+local newInstall = previousVersion == "null" and '1' or '0';
 
 local query = bind("INSERT INTO logs (os_version, locale, os_ts, fresh_install, entry_type, current_version, prev_version, new_install) values (?, ?, ?, ?, ?, ?, ?, ?)", osVersion, locale, osTs, freshInstall, entryType, currentVersion, previousVersion, newInstall);
 local res, err, errcode, sqlstate = db:query(query);

@@ -1,227 +1,525 @@
-2022/06/21 15:27:38 [notice] 74#74: signal process started
-2022/06/21 15:28:05 [notice] 76#76: signal process started
-2022/06/21 15:30:36 [notice] 78#78: signal process started
-2022/06/21 15:30:38 [error] 79#79: *10 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
-stack traceback:
-coroutine 0:
-	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
-	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
-	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:30:41 [error] 79#79: *11 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
-stack traceback:
-coroutine 0:
-	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
-	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
-	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:30:44 [notice] 80#80: signal process started
-2022/06/21 15:30:46 [error] 81#81: *12 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
-stack traceback:
-coroutine 0:
-	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
-	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
-	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:31:20 [notice] 82#82: signal process started
-2022/06/21 15:31:22 [error] 83#83: *13 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
-stack traceback:
-coroutine 0:
-	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
-	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
-	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:31:36 [error] 83#83: *14 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
-stack traceback:
-coroutine 0:
-	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
-	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
-	/lua/script.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:31:38 [notice] 84#84: signal process started
-2022/06/21 15:32:42 [notice] 86#86: signal process started
-2022/06/21 15:32:44 [error] 87#87: *16 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:32:47 [error] 87#87: *17 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:32:50 [notice] 88#88: signal process started
-2022/06/21 15:32:54 [error] 89#89: *18 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:33:18 [notice] 91#91: signal process started
-2022/06/21 15:33:24 [notice] 94#94: signal process started
-2022/06/21 15:33:26 [error] 95#95: *19 attempt to set ngx.status after sending out response headers, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:33:26 [error] 95#95: *19 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:34 [notice] 97#97: signal process started
-2022/06/21 15:34:37 [error] 98#98: *20 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:39 [error] 98#98: *21 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:40 [error] 98#98: *22 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:41 [error] 98#98: *23 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:52 [error] 98#98: *24 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:54 [error] 98#98: *25 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:54 [error] 98#98: *26 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:55 [error] 98#98: *27 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:34:57 [error] 98#98: *28 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:35:01 [notice] 100#100: signal process started
-2022/06/21 15:35:03 [error] 101#101: *29 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:35:33 [error] 101#101: *30 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:35:34 [error] 101#101: *31 attempt to set status 400 via ngx.exit after sending out the response status 200, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:35:41 [notice] 103#103: signal process started
-2022/06/21 15:35:43 [error] 104#104: *32 failed to load external Lua file "/lua/script.lua": /lua/script.lua:3: '<eof>' expected near 'local', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:36:00 [error] 104#104: *33 failed to load external Lua file "/lua/script.lua": /lua/script.lua:3: '<eof>' expected near 'local', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:45:03 [notice] 105#105: signal process started
-2022/06/21 15:45:05 [error] 106#106: *34 failed to load external Lua file "/lua/script.lua": /lua/script.lua:3: '<eof>' expected near 'local', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:45:13 [notice] 107#107: signal process started
-2022/06/21 15:45:14 [error] 108#108: *35 lua entry thread aborted: runtime error: /lua/script.lua:3: attempt to perform arithmetic on a string value
-stack traceback:
-coroutine 0:
-	/lua/script.lua: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:45:16 [error] 108#108: *36 lua entry thread aborted: runtime error: /lua/script.lua:3: attempt to perform arithmetic on a string value
-stack traceback:
-coroutine 0:
-	/lua/script.lua: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:45:59 [notice] 109#109: signal process started
-2022/06/21 15:46:01 [error] 110#110: *37 lua entry thread aborted: runtime error: /lua/script.lua:3: bad argument #1 to 'log' (number expected, got nil)
-stack traceback:
-coroutine 0:
-	[C]: in function 'log'
-	/lua/script.lua:3: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:46:23 [notice] 111#111: signal process started
-2022/06/21 15:46:25 [error] 112#112: *38 lua entry thread aborted: runtime error: /lua/script.lua:3: bad argument #2 to 'format' (number expected, got nil)
-stack traceback:
-coroutine 0:
-	[C]: in function 'format'
-	/lua/script.lua:3: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:50:09 [notice] 113#113: signal process started
-2022/06/21 15:50:11 [error] 114#114: *39 lua entry thread aborted: runtime error: /lua/script.lua:3: bad argument #1 to 'log' (number expected, got nil)
-stack traceback:
-coroutine 0:
-	[C]: in function 'log'
-	/lua/script.lua:3: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 15:53:56 [notice] 115#115: signal process started
-2022/06/21 15:57:39 [notice] 117#117: signal process started
-2022/06/21 16:12:33 [notice] 119#119: signal process started
-2022/06/21 16:12:46 [error] 120#120: *55 failed to load external Lua file "/lua/script.lua": /lua/script.lua:42: 'end' expected (to close 'if' at line 38) near 'return', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:13:05 [notice] 121#121: signal process started
-2022/06/21 16:13:10 [error] 122#122: *56 failed to load external Lua file "/lua/script.lua": cannot open /lua/script.lua: No such file or directory, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:13:31 [notice] 123#123: signal process started
-2022/06/21 16:13:39 [notice] 126#126: signal process started
-2022/06/21 16:13:40 [error] 127#127: *57 failed to load external Lua file "/lua/script.lua": /lua/script.lua:50: 'then' expected near '!', client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:15:04 [notice] 128#128: signal process started
-2022/06/21 16:15:21 [error] 129#129: *59 lua entry thread aborted: runtime error: /lua/script.lua:51: bad argument #2 to 'format' (value expected)
-stack traceback:
-coroutine 0:
-	[C]: in function 'format'
-	/lua/script.lua:51: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:16:25 [notice] 130#130: signal process started
-2022/06/21 16:16:28 [error] 131#131: *60 lua entry thread aborted: runtime error: /usr/local/openresty/lualib/resty/core/misc.lua:113: bad argument #2 to 'ngx_http_lua_ffi_set_resp_status' (cannot convert 'nil' to 'int')
-stack traceback:
-coroutine 0:
-	[C]: in function 'ngx_http_lua_ffi_set_resp_status'
-	/usr/local/openresty/lualib/resty/core/misc.lua:113: in function '__newindex'
-	/lua/script.lua:52: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:39:10 [notice] 132#132: signal process started
-2022/06/21 16:42:43 [notice] 134#134: signal process started
-2022/06/21 16:44:11 [notice] 136#136: signal process started
-2022/06/21 16:45:56 [notice] 138#138: signal process started
-2022/06/21 16:54:25 [emerg] 140#140: directive "error_log" is not terminated by ";" in /etc/nginx/conf.d/nginx.conf:4
-2022/06/21 16:54:32 [notice] 141#141: signal process started
-2022/06/21 16:54:36 [notice] 142#142: *66 [lua] script.lua:4: Authorization: EDRLAB rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:54:36 [notice] 142#142: *66 [lua] script.lua:13: Authorization key: rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:54:36 [notice] 142#142: *66 [lua] script.lua:51: hmac key (06890f022f2ec5df84589713e90242d9290e4850) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 16:54:36 [info] 142#142: *66 client 172.17.0.1 closed keepalive connection
-2022/06/21 17:00:50 [emerg] 143#143: invalid log level "stderr" in /etc/nginx/conf.d/nginx.conf:2
-2022/06/21 17:03:08 [notice] 144#144: signal process started
-2022/06/21 17:03:10 [error] 145#145: *67 [lua] script.lua:51: hmac key (06890f022f2ec5df84589713e90242d9290e4850) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:05:01 [emerg] 146#146: unknown log format "debug" in /etc/nginx/conf.d/nginx.conf:3
-2022/06/21 17:05:48 [notice] 147#147: signal process started
-2022/06/21 17:05:51 [notice] 148#148: *68 [lua] script.lua:4: Authorization: EDRLAB rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:05:51 [notice] 148#148: *68 [lua] script.lua:13: Authorization key: rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:05:51 [error] 148#148: *68 [lua] script.lua:51: hmac key (06890f022f2ec5df84589713e90242d9290e4850) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:11:45 [error] 148#148: *69 lua entry thread aborted: runtime error: /lua/8081.lua:7: bad argument #1 to 'decode' (string expected, got nil)
-stack traceback:
-coroutine 0:
-	[C]: in function 'decode'
-	/lua/8081.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8081"
-2022/06/21 17:11:47 [error] 148#148: *70 lua entry thread aborted: runtime error: /lua/8081.lua:7: bad argument #1 to 'decode' (string expected, got nil)
-stack traceback:
-coroutine 0:
-	[C]: in function 'decode'
-	/lua/8081.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET /erwer HTTP/1.1", host: "localhost:8081"
-2022/06/21 17:11:47 [error] 148#148: *71 lua entry thread aborted: runtime error: /lua/8081.lua:7: bad argument #1 to 'decode' (string expected, got nil)
-stack traceback:
-coroutine 0:
-	[C]: in function 'decode'
-	/lua/8081.lua:7: in main chunk, client: 172.17.0.1, server: , request: "GET /favicon.ico HTTP/1.1", host: "localhost:8081", referrer: "http://localhost:8081/erwer"
-2022/06/21 17:15:31 [notice] 148#148: *76 [lua] script.lua:4: Authorization: EDRLAB rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:15:31 [notice] 148#148: *76 [lua] script.lua:13: Authorization key: rocks, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:15:31 [error] 148#148: *76 [lua] script.lua:51: hmac key (4821f05cf54aaae81aaab53df3d8b2f07c049ba1) doesn't match with authorization key (rocks), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:4: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:13: Authorization key: 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:16:23 [notice] 148#148: *77 [lua] script.lua:57: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:19:49 [notice] 149#149: signal process started
-2022/06/21 17:19:51 [notice] 150#150: *78 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:19:51 [notice] 150#150: *78 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:19:51 [error] 150#150: *78 lua entry thread aborted: runtime error: /lua/script.lua:62: Expected object key string but found invalid token at character 2
-stack traceback:
-coroutine 0:
-	[C]: in function 'decode'
-	/lua/script.lua:62: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:20:29 [notice] 150#150: *79 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:20:29 [notice] 150#150: *79 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:20:29 [error] 150#150: *79 lua entry thread aborted: runtime error: /lua/script.lua:62: Expected object key string but found invalid token at character 2
-stack traceback:
-coroutine 0:
-	[C]: in function 'decode'
-	/lua/script.lua:62: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:20:34 [notice] 151#151: signal process started
-2022/06/21 17:20:35 [notice] 152#152: *80 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:20:35 [notice] 152#152: *80 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:20:35 [notice] 152#152: *80 [lua] script.lua:62: data {timestamp:2022-06-21T17:14:45.929Z}, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:20:35 [error] 152#152: *80 lua entry thread aborted: runtime error: /lua/script.lua:63: Expected object key string but found invalid token at character 2
-stack traceback:
-coroutine 0:
-	[C]: in function 'decode'
-	/lua/script.lua:63: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:26:14 [notice] 152#152: *81 [lua] script.lua:5: Authorization: EDRLAB 4821f05cf54aaae81aaab53df3d8b2f07c049ba1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:26:14 [error] 152#152: *81 [lua] script.lua:52: hmac key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9) doesn't match with authorization key (4821f05cf54aaae81aaab53df3d8b2f07c049ba1), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:62: data {"timestamp":"2022-06-21T17:14:45.929Z"}, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:26:37 [notice] 152#152: *82 [lua] script.lua:71: timestamp 2022-06-21T17:14:45.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:27:30 [notice] 152#152: *83 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:27:30 [error] 152#152: *83 [lua] script.lua:52: hmac key (4821f05cf54aaae81aaab53df3d8b2f07c049ba1) doesn't match with authorization key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:62: data {"timestamp":"2022-06-21T17:14:45.929Z"}, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 17:29:05 [notice] 152#152: *84 [lua] script.lua:71: timestamp 2022-06-21T17:14:45.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:11:33 [notice] 153#153: signal process started
-2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:62: data: '{"timestamp":"2022-06-21T17:14:45.929Z"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:71: timestamp 2022-06-21T17:14:45.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:11:35 [notice] 154#154: *85 [lua] script.lua:76: currentTime (1655838695), time (1655831685), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:12:13 [notice] 154#154: *86 [lua] script.lua:5: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:12:13 [error] 154#154: *86 [lua] script.lua:52: hmac key (4ce26084fb69f607ef9412c6e80f5403d021045e) doesn't match with authorization key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:5: Authorization: EDRLAB 4ce26084fb69f607ef9412c6e80f5403d021045e, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:58: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:62: data: '{"timestamp":"2022-06-21T21:12:12.929Z"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:71: timestamp 2022-06-21T21:12:12.929Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 19:12:29 [notice] 154#154: *87 [lua] script.lua:76: currentTime (1655838749), time (1655845932), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:23:41 [notice] 155#155: signal process started
-2022/06/21 21:23:57 [error] 156#156: *88 failed to load external Lua file "/lua/script.lua": /lua/script.lua:132: unexpected symbol near '[', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:24:41 [notice] 157#157: signal process started
-2022/06/21 21:24:42 [error] 158#158: *89 failed to load external Lua file "/lua/script.lua": /lua/script.lua:133: unexpected symbol near 'if', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:04 [notice] 159#159: signal process started
-2022/06/21 21:28:08 [warn] 160#160: *90 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+2022/06/22 09:55:34 [notice] 104#104: signal process started
+2022/06/22 09:56:06 [warn] 105#105: *4 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
 stack traceback:
 	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:08 [notice] 160#160: *90 [lua] script.lua:26: Authorization: EDRLAB 25fac7029aa1dbc46a9a10bafe212d377c8a2fd9, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:08 [error] 160#160: *90 [lua] script.lua:73: hmac key (51bd39a65882f1871974db762428f0620a6996f7) doesn't match with authorization key (25fac7029aa1dbc46a9a10bafe212d377c8a2fd9), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:26: Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:79: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:83: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:92: timestamp 2022-06-21T21:22:59.201Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:97: currentTime (1655846934), time (1655846579), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:105: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [notice] 160#160: *91 [lua] script.lua:127: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:28:54 [error] 160#160: *91 [lua] script.lua:141: bad result: Incorrect datetime value: '2022-06-21T21:22:59.201Z' for column `telemetry`.`logs`.`os_ts` at row 1 : 1292 : 22007, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:26: Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:79: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:83: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:92: timestamp 2022-06-21T21:22:59.201Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:97: currentTime (1655846944), time (1655846579), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:105: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [notice] 160#160: *93 [lua] script.lua:127: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
-2022/06/21 21:29:04 [error] 160#160: *93 [lua] script.lua:141: bad result: Incorrect datetime value: '2022-06-21T21:22:59.201Z' for column `telemetry`.`logs`.`os_ts` at row 1 : 1292 : 22007, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:06 [notice] 105#105: *4 [lua] script.lua:26: Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:06 [notice] 105#105: *4 [lua] script.lua:79: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:06 [notice] 105#105: *4 [lua] script.lua:83: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:06 [notice] 105#105: *4 [lua] script.lua:92: timestamp 2022-06-21T21:22:59.201Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:06 [notice] 105#105: *4 [lua] script.lua:97: currentTime (1655891766), time (1655846579), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:06 [error] 105#105: *4 lua entry thread aborted: runtime error: /lua/script.lua:100: invalid option '%D' to 'format'
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:100: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:30 [notice] 106#106: signal process started
+2022/06/22 09:56:34 [warn] 107#107: *5 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:34 [notice] 107#107: *5 [lua] script.lua:26: Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:34 [notice] 107#107: *5 [lua] script.lua:79: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:34 [notice] 107#107: *5 [lua] script.lua:83: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:34 [notice] 107#107: *5 [lua] script.lua:92: timestamp 2022-06-21T21:22:59.201Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 09:56:34 [notice] 107#107: *5 [lua] script.lua:97: currentTime (1655891794), time (1655846579), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 11:42:30 [notice] 107#107: *6 [lua] script.lua:26: Authorization: EDRLAB 51bd39a65882f1871974db762428f0620a6996f7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 11:42:30 [notice] 107#107: *6 [lua] script.lua:79: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 11:42:30 [notice] 107#107: *6 [lua] script.lua:83: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-21T21:22:59.201Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 11:42:30 [notice] 107#107: *6 [lua] script.lua:92: timestamp 2022-06-21T21:22:59.201Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 11:42:30 [notice] 107#107: *6 [lua] script.lua:97: currentTime (1655898150), time (1655846579), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 11:51:36 [notice] 107#107: *7 [lua] script.lua:26: Authorization: EDRLAB 2ca98d0c2552262d06a2aedeb09db9a71472e5e3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 11:51:36 [error] 107#107: *7 [lua] script.lua:73: hmac key (a63d979bc355e6e57bbf60c2862dbed5b3888d24) doesn't match with authorization key (2ca98d0c2552262d06a2aedeb09db9a71472e5e3), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:05:02 [notice] 107#107: *8 [lua] script.lua:26: Authorization: EDRLAB a9e6606f12ff60f13fd85f3c766d5fe7bc35da58, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:05:02 [error] 107#107: *8 [lua] script.lua:73: hmac key (9b24dae913870ee164ba5b7b9069ca49c7aa2cc7) doesn't match with authorization key (a9e6606f12ff60f13fd85f3c766d5fe7bc35da58), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:08:12 [notice] 108#108: signal process started
+2022/06/22 12:11:31 [warn] 109#109: *9 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:11:31 [notice] 109#109: *9 [lua] script.lua:26: Authorization: EDRLAB 1a4c39d08c77a7fea8b5e224a8046d867e7b409f, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:11:31 [notice] 109#109: *9 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T12:09:14.130Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:11:31 [error] 109#109: *9 [lua] script.lua:74: hmac key (cbcab287e2ffaa5d7b11b8ece741f4033db59671) doesn't match with authorization key (1a4c39d08c77a7fea8b5e224a8046d867e7b409f), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:20:21 [notice] 109#109: *10 [lua] script.lua:26: Authorization: EDRLAB 1a4c39d08c77a7fea8b5e224a8046d867e7b409f, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:20:21 [notice] 109#109: *10 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T12:09:14.130Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:20:21 [error] 109#109: *10 [lua] script.lua:74: hmac key (cbcab287e2ffaa5d7b11b8ece741f4033db59671) doesn't match with authorization key (1a4c39d08c77a7fea8b5e224a8046d867e7b409f), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:20:46 [notice] 109#109: *11 [lua] script.lua:26: Authorization: EDRLAB 4386000183bb7c98d6273302a60e4227150e445e, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:20:46 [notice] 109#109: *11 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T12:20:43.106Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:20:46 [error] 109#109: *11 [lua] script.lua:74: hmac key (b6321bd4d98742abe40b7ed287266ed26d77a6b8) doesn't match with authorization key (4386000183bb7c98d6273302a60e4227150e445e), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:22:04 [notice] 109#109: *12 [lua] script.lua:26: Authorization: EDRLAB 4386000183bb7c98d6273302a60e4227150e445e, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:22:04 [notice] 109#109: *12 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T12:20:43.106Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:22:04 [error] 109#109: *12 [lua] script.lua:74: hmac key (b6321bd4d98742abe40b7ed287266ed26d77a6b8) doesn't match with authorization key (4386000183bb7c98d6273302a60e4227150e445e), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:22:09 [notice] 110#110: signal process started
+2022/06/22 12:22:15 [warn] 111#111: *13 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:22:15 [notice] 111#111: *13 [lua] script.lua:26: Authorization: EDRLAB 4386000183bb7c98d6273302a60e4227150e445e, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:22:15 [notice] 111#111: *13 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T12:20:43.106Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:22:15 [error] 111#111: *13 [lua] script.lua:75: hmac key (b6321bd4d98742abe40b7ed287266ed26d77a6b8) doesn't match with authorization key (4386000183bb7c98d6273302a60e4227150e445e), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:31:49 [notice] 112#112: signal process started
+2022/06/22 12:31:52 [error] 113#113: *14 failed to load external Lua file "/lua/script.lua": /lua/script.lua:122: unexpected symbol near '==', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:31:55 [error] 113#113: *15 failed to load external Lua file "/lua/script.lua": /lua/script.lua:122: unexpected symbol near '==', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:31:56 [error] 113#113: *16 failed to load external Lua file "/lua/script.lua": /lua/script.lua:122: unexpected symbol near '==', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:32:22 [notice] 114#114: signal process started
+2022/06/22 12:32:24 [warn] 115#115: *17 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:32:24 [notice] 115#115: *17 [lua] script.lua:26: Authorization: EDRLAB 4386000183bb7c98d6273302a60e4227150e445e, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:32:24 [notice] 115#115: *17 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T12:20:43.106Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:32:24 [error] 115#115: *17 [lua] script.lua:66: hmac key (b6321bd4d98742abe40b7ed287266ed26d77a6b8) doesn't match with authorization key (4386000183bb7c98d6273302a60e4227150e445e), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:45:17 [notice] 130#130: signal process started
+2022/06/22 12:45:34 [error] 131#131: *18 failed to load external Lua file "/lua/8081.lua": cannot open /lua/8081.lua: No such file or directory, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8081"
+2022/06/22 12:45:49 [warn] 131#131: *19 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('ok') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/hmac.lua:12: in main chunk, client: 172.17.0.1, server: , request: "GET / HTTP/1.1", host: "localhost:8082"
+2022/06/22 12:50:16 [notice] 132#132: signal process started
+2022/06/22 12:51:03 [warn] 133#133: *21 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('ok') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/hmac.lua:14: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8082"
+2022/06/22 12:54:54 [notice] 134#134: signal process started
+2022/06/22 12:54:59 [warn] 135#135: *23 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('ok') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/hmac.lua:14: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8082"
+2022/06/22 12:56:09 [notice] 136#136: signal process started
+2022/06/22 12:57:03 [warn] 137#137: *25 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [notice] 137#137: *25 [lua] script.lua:26: Authorization: EDRLAB cfdf3e932c31cc43c832376b1dcdc5b6b732f66f, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [notice] 137#137: *25 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T12:57:03.524Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [notice] 137#137: *25 [lua] script.lua:72: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [notice] 137#137: *25 [lua] script.lua:84: timestamp 2022-06-22T12:57:03.524Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [notice] 137#137: *25 [lua] script.lua:89: currentTime (1655902623), time (1655902623), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [notice] 137#137: *25 [lua] script.lua:101: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [notice] 137#137: *25 [lua] script.lua:122: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 12:57:03 [error] 137#137: *25 lua entry thread aborted: runtime error: /lua/script.lua:13: bad argument #7 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:13: in function 'bind'
+	/lua/script.lua:133: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:08 [notice] 138#138: signal process started
+2022/06/22 13:00:10 [warn] 139#139: *27 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:27: Authorization: EDRLAB 06d4fd37a4e7283a0424749d357d95eaf920c12a, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:54: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:00:10.317Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:73: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:85: timestamp 2022-06-22T13:00:10.317Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:90: currentTime (1655902810), time (1655902810), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:102: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:123: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:12: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:12: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:12: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:12: bind(): 4, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [notice] 139#139: *27 [lua] script.lua:12: bind(): 5, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:10 [error] 139#139: *27 lua entry thread aborted: runtime error: /lua/script.lua:14: bad argument #7 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:14: in function 'bind'
+	/lua/script.lua:134: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:27: Authorization: EDRLAB df4844ff3fa0ec63a100eb66b39b73875a919277, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:54: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:00:49.502Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:73: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:85: timestamp 2022-06-22T13:00:49.502Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:90: currentTime (1655902849), time (1655902849), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:102: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:123: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:12: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:12: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:12: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:12: bind(): 4, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [notice] 139#139: *29 [lua] script.lua:12: bind(): 5, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:49 [error] 139#139: *29 lua entry thread aborted: runtime error: /lua/script.lua:14: bad argument #7 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:14: in function 'bind'
+	/lua/script.lua:134: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:51 [notice] 140#140: signal process started
+2022/06/22 13:00:52 [warn] 141#141: *31 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [notice] 141#141: *31 [lua] script.lua:28: Authorization: EDRLAB 980e4843fb706fa4d59730c37279e92825300a8c, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [notice] 141#141: *31 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:00:52.772Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [notice] 141#141: *31 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [notice] 141#141: *31 [lua] script.lua:86: timestamp 2022-06-22T13:00:52.772Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [notice] 141#141: *31 [lua] script.lua:91: currentTime (1655902852), time (1655902852), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [notice] 141#141: *31 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [notice] 141#141: *31 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:00:52 [error] 141#141: *31 lua entry thread aborted: runtime error: /lua/script.lua:9: bad argument #1 to 'print' (expected table to have __tostring metamethod)
+stack traceback:
+coroutine 0:
+	[C]: in function 'print'
+	/lua/script.lua:9: in function 'bind'
+	/lua/script.lua:135: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:51 [notice] 142#142: signal process started
+2022/06/22 13:09:56 [warn] 143#143: *33 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:28: Authorization: EDRLAB 17e8df520a03d64eef11bc64160a0a9a7dcd3fbb, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:09:56.421Z","fresh":true,"type":"poll","actual_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:86: timestamp 2022-06-22T13:09:56.421Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:91: currentTime (1655903396), time (1655903396), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:9: bind(): 5, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:13: bind(): 4, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [notice] 143#143: *33 [lua] script.lua:13: bind(): 5, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:09:56 [error] 143#143: *33 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #7 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:135: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:28: Authorization: EDRLAB 9a6cb20f3fde3d9344a2c4aee68c483eee48d148, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:11:06.193Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:86: timestamp 2022-06-22T13:11:06.193Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:91: currentTime (1655903466), time (1655903466), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:9: bind(): 8, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 4, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 5, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 6, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 7, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [notice] 143#143: *35 [lua] script.lua:13: bind(): 8, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:11:06 [error] 143#143: *35 [lua] script.lua:138: bad result: Incorrect integer value: 'true' for column `telemetry`.`logs`.`fresh_install` at row 1 : 1366 : 22007, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:17 [notice] 144#144: signal process started
+2022/06/22 13:14:20 [warn] 145#145: *37 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:28: Authorization: EDRLAB 00829aab8968747ccc4424943c8337f4af7831b5, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:14:20.077Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:86: timestamp 2022-06-22T13:14:20.077Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:91: currentTime (1655903660), time (1655903660), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [warn] 145#145: *37 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:126: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [notice] 145#145: *37 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:20 [error] 145#145: *37 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:139: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:14:59 [notice] 146#146: signal process started
+2022/06/22 13:15:03 [warn] 147#147: *39 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:28: Authorization: EDRLAB a8b0246bbfecc272d8f466a737d85845d654a594, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:15:03.716Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:86: timestamp 2022-06-22T13:15:03.716Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:91: currentTime (1655903703), time (1655903703), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [warn] 147#147: *39 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:126: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [notice] 147#147: *39 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:03 [error] 147#147: *39 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:139: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:48 [notice] 148#148: signal process started
+2022/06/22 13:15:51 [warn] 149#149: *41 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:28: Authorization: EDRLAB f01a9d32b77aadebcec2d5739d489a3b84a96efc, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:15:51.709Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:86: timestamp 2022-06-22T13:15:51.709Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:91: currentTime (1655903751), time (1655903751), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [warn] 149#149: *41 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:126: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:139: entryTypenil, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [notice] 149#149: *41 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:15:51 [error] 149#149: *41 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:141: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:18 [notice] 150#150: signal process started
+2022/06/22 13:16:20 [warn] 151#151: *43 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:28: Authorization: EDRLAB 1379129091c578b4d625f080bb23c491932e59ab, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:16:20.246Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:86: timestamp 2022-06-22T13:16:20.246Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:91: currentTime (1655903780), time (1655903780), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [warn] 151#151: *43 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:126: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:139: entryTypenilpoll, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [notice] 151#151: *43 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:16:20 [error] 151#151: *43 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:141: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:08 [notice] 152#152: signal process started
+2022/06/22 13:17:10 [warn] 153#153: *45 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:28: Authorization: EDRLAB e30e4d672684258a733a540dfb7679e2dce2cad3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:17:10.149Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:86: timestamp 2022-06-22T13:17:10.149Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:91: currentTime (1655903830), time (1655903830), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [warn] 153#153: *45 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:126: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:139: entryTypenilpoll, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [notice] 153#153: *45 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:10 [error] 153#153: *45 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:141: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:39 [notice] 154#154: signal process started
+2022/06/22 13:17:40 [warn] 155#155: *47 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:28: Authorization: EDRLAB c7f9883fa26d73bb6c53f8e9803e3f62158905df, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:17:40.869Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:86: timestamp 2022-06-22T13:17:40.869Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:91: currentTime (1655903860), time (1655903860), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:124: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [warn] 155#155: *47 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:126: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:139: entryTypepollpoll, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [notice] 155#155: *47 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:17:40 [error] 155#155: *47 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:141: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:55 [notice] 156#156: signal process started
+2022/06/22 13:25:59 [warn] 157#157: *49 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:28: Authorization: EDRLAB 1af39b5ded2817ab2b328bde6b733d67b1627172, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:25:59.726Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:86: timestamp 2022-06-22T13:25:59.726Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:91: currentTime (1655904359), time (1655904359), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:136: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [warn] 157#157: *49 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:138: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:151: entryTypepollpoll, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:13: bind(): 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:13: bind(): 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [notice] 157#157: *49 [lua] script.lua:13: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:25:59 [error] 157#157: *49 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:153: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:26 [notice] 158#158: signal process started
+2022/06/22 13:26:27 [warn] 159#159: *51 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:28: Authorization: EDRLAB 2d047ae83e98162981bbc135762a87b5276ba862, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:26:27.838Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:86: timestamp 2022-06-22T13:26:27.838Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:91: currentTime (1655904387), time (1655904387), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:136: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [warn] 159#159: *51 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_number') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:138: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:151: entryTypepollpoll, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:13: bind(): 1my os version, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:13: bind(): 2fr, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [notice] 159#159: *51 [lua] script.lua:13: bind(): 32022-6-22 13:26:27, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:26:27 [error] 159#159: *51 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:153: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:11 [notice] 160#160: signal process started
+2022/06/22 13:28:13 [warn] 161#161: *53 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:28: Authorization: EDRLAB 78df4a159b8b3d0150a3c2a81a8ca5b349c01e57, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:28:13.097Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:86: timestamp 2022-06-22T13:28:13.097Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:91: currentTime (1655904493), time (1655904493), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:136: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [warn] 161#161: *53 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_string') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:138: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:151: entryTypepollpoll, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:13: bind(): 1my os version, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:13: bind(): 2fr, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [notice] 161#161: *53 [lua] script.lua:13: bind(): 32022-6-22 13:28:13, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:13 [error] 161#161: *53 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:153: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:42 [notice] 162#162: signal process started
+2022/06/22 13:28:44 [warn] 163#163: *55 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:28: Authorization: EDRLAB e71afd95542f70c17ca2c4c24070b3d24b0c2aa2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:28:44.508Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:86: timestamp 2022-06-22T13:28:44.508Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:91: currentTime (1655904524), time (1655904524), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:136: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [warn] 163#163: *55 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_string') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:138: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:146: freshInstallnil, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:13: bind(): 1my os version, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:13: bind(): 2fr, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [notice] 163#163: *55 [lua] script.lua:13: bind(): 32022-6-22 13:28:44, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:28:44 [error] 163#163: *55 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:153: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:32 [notice] 164#164: signal process started
+2022/06/22 13:29:34 [warn] 165#165: *57 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:28: Authorization: EDRLAB 70ae8957f2d4a3a6ef1f6a6a6ae1f5a9363dd299, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:29:34.251Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:86: timestamp 2022-06-22T13:29:34.251Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:91: currentTime (1655904574), time (1655904574), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:136: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [warn] 165#165: *57 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bool_to_string') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:138: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:139: bool_to_string(): valuetrue, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:147: freshInstallnil, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:139: bool_to_string(): valuefalse, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:13: bind(): 1my os version, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:13: bind(): 2fr, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [notice] 165#165: *57 [lua] script.lua:13: bind(): 32022-6-22 13:29:34, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:29:34 [error] 165#165: *57 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:154: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:24 [notice] 169#169: signal process started
+2022/06/22 13:33:31 [notice] 171#171: signal process started
+2022/06/22 13:33:36 [warn] 172#172: *59 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:36 [notice] 172#172: *59 [lua] script.lua:28: Authorization: EDRLAB fb72544d0c0e69de285c6b2e749809f3ddfbbb6e, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:36 [notice] 172#172: *59 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:33:36.953Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:36 [notice] 172#172: *59 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:36 [notice] 172#172: *59 [lua] script.lua:86: timestamp 2022-06-22T13:33:36.953Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:36 [notice] 172#172: *59 [lua] script.lua:91: currentTime (1655904816), time (1655904816), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:36 [notice] 172#172: *59 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:37 [notice] 172#172: *59 [lua] script.lua:136: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:37 [notice] 172#172: *59 [lua] script.lua:142: freshInstall: nil, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:37 [notice] 172#172: *59 [lua] script.lua:9: bind(): 3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:37 [notice] 172#172: *59 [lua] script.lua:13: bind(): 1my os version, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:37 [notice] 172#172: *59 [lua] script.lua:13: bind(): 2fr, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:37 [notice] 172#172: *59 [lua] script.lua:13: bind(): 32022-6-22 13:33:36, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:33:37 [error] 172#172: *59 lua entry thread aborted: runtime error: /lua/script.lua:15: bad argument #5 to 'format' (value expected)
+stack traceback:
+coroutine 0:
+	[C]: in function 'format'
+	/lua/script.lua:15: in function 'bind'
+	/lua/script.lua:149: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:38 [notice] 173#173: signal process started
+2022/06/22 13:34:42 [warn] 174#174: *61 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:28: Authorization: EDRLAB dfea292c2fca209c966748d1412cb12ca848e9dc, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:55: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:34:42.091Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:74: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:86: timestamp 2022-06-22T13:34:42.091Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:91: currentTime (1655904882), time (1655904882), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:103: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:136: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:142: freshInstall: 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:9: bind(): 8, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 1my os version, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 2fr, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 32022-6-22 13:34:42, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 41, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 5poll, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 61.2.3, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 70.1.2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:13: bind(): 80, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:34:42 [notice] 174#174: *61 [lua] script.lua:157: mysql insert id: 1, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:03 [notice] 175#175: signal process started
+2022/06/22 13:37:05 [warn] 176#176: *63 [lua] _G write guard:12: __newindex(): writing a global Lua variable ('bind') which may lead to race conditions between concurrent requests, so prefer the use of 'local' variables
+stack traceback:
+	/lua/script.lua:6: in main chunk, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:26: Authorization: EDRLAB 83883faeee8ea948522643defe60a925aa0c7ac0, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:53: data: '{"os_version":"my os version","locale":"fr","timestamp":"2022-06-22T13:37:05.422Z","fresh":true,"type":"poll","current_version":"1.2.3","prev_version":"0.1.2"}', client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:72: Authorization OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:84: timestamp 2022-06-22T13:37:05.422Z, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:89: currentTime (1655905025), time (1655905025), client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:101: Timestamp OK, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:134: connected to mysql, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
+2022/06/22 13:37:05 [notice] 176#176: *63 [lua] script.lua:153: mysql insert id: 2, client: 172.17.0.1, server: , request: "POST / HTTP/1.1", host: "localhost:8090"
