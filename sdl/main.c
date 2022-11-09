@@ -2,6 +2,22 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* Very simple thread - counts 0 to 9 delaying 50ms between increments */
+static int TestThread(void *ptr)
+{
+    int cnt;
+
+    for (cnt = 0; cnt < 10; ++cnt) {
+        printf("Thread counter: %d\n", cnt);
+        SDL_Delay(50);
+        printf(" > ");
+        fflush(stdout);
+        while (getchar() != '\n') {};
+    }
+
+    return cnt;
+}
+
 int main(int argc, char *argv[])
 {
     SDL_Window* fenetre;
@@ -9,6 +25,13 @@ int main(int argc, char *argv[])
 
     SDL_Rect cases[32]; // Déclaration du tableau contenant les cases blanches
     SDL_Point ligne_depart,ligne_arrivee; // Déclaration du point de départ et du point d'arrivée d'une ligne
+
+
+    SDL_Thread *thread;
+    int         threadReturnValue;
+
+    thread = SDL_CreateThread(TestThread, "TestThread", (void *)NULL);
+    if (!thread) printf("thread error\n");
 
 
     if(SDL_VideoInit(NULL) < 0) // Initialisation de la SDL
@@ -97,17 +120,28 @@ int main(int argc, char *argv[])
 
 // Toujours penser au rendu, sinon on n'obtient rien du tout
     SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer);
+    SDL_SetRenderDrawColor(renderer,255,0,0,255);//Couleur rouge
+                                                 //
+    SDL_Rect a = {.x = 0, .y = 0, .w = 100, .h = 100};
+    SDL_RenderFillRects(renderer,&a, 32);
+
+    SDL_RenderPresent(renderer);
 
 int isquit = 0;
 SDL_Event event;
 while (!isquit) {
     if (SDL_PollEvent( & event)) {
         if (event.type == SDL_QUIT) {
+            if (thread) {
+              SDL_DetachThread(thread);
+              thread = NULL;
+            }
             isquit = 1;
         }
     }
 }
-
 
 // Destruction du renderer et de la fenêtre :
     SDL_DestroyRenderer(renderer);
