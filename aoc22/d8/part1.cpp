@@ -9,11 +9,10 @@ int main() {
 
   ifstream file;
   string line;
-  file.open("d8/test2");
+  file.open("d8/input");
   vector<int> map;
   int size = 0;
   int ptr = 0;
-
   int tree = 0;
 
   vector<int> treeMarked;
@@ -34,61 +33,70 @@ int main() {
     }
     cout << endl;
 
-    tree += size * 4 - 4; // visible from edge
+    tree = size * 4 - 4; // visible from edge
     
     for (int n = 1; n < size - 1; n++) {
 
       cout << n << endl;
 
+      int t = 0;
+      int d = 0;
+      int r = 0;
+      int l = 0;
+
       // top-down
       ptr = size + n; // start at 6 for test
       while (
-          find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
-          map[ptr] >= map[ptr - size] &&
+          // find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
+          // map[ptr] >= map[ptr - size] &&
           ptr < map.size() - size // minus edge
           ) {
-        cout << "top-down" << ptr << endl;
-        if (map[ptr] > map[ptr - size])
+        if (map[ptr] > map[ptr - size] && map[ptr] > t && find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end()) {
+          t = map[ptr];
           treeMarked.push_back(ptr);
+        }
         ptr += size;
       }
 
       // down-top
       ptr = map.size() - 2 * size + n; // start at 16 for test
       while (
-          find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
-          map[ptr] >= map[ptr + size] &&
+          // find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
+          // map[ptr] >= map[ptr + size] &&
           ptr > size// minus edge
           ) {
-        cout << "down-top" << ptr << endl;
-        if (map[ptr] > map[ptr + size])
+        if (map[ptr] > map[ptr + size] && map[ptr] > d && find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end()) {
+          d = map[ptr];
           treeMarked.push_back(ptr);
+        }
         ptr -= size;
       }
 
       // right-left
       ptr = n * size + 1; // start at 6 for test
       while (
-          find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
-          map[ptr] >= map[ptr - 1] &&
+          // find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
+          // map[ptr] >= map[ptr - 1] &&
           ptr % size < size - 1 // minus one edge
           ) {
-        cout << "right-left" << ptr << endl;
-        if (map[ptr] > map[ptr - 1])
+        if (map[ptr] > map[ptr - 1] && map[ptr] > r && find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end()) {
+          r = map[ptr];
           treeMarked.push_back(ptr);
+        }
         ptr += 1;
       }
 
       // left-right
       ptr = n * size + size - 2; // start at 8 for test
       while (
-          find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
-          map[ptr] >= map[ptr + 1] && // mon truc est peté doit etre superieur ou egal et check que p et p+1 ne sont pas égaux
+          // find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end() &&
+          // map[ptr] >= map[ptr + 1] &&
           ptr % size > 0
           ) {
-        cout << "left-right" << ptr << endl;
-        if (map[ptr] > map[ptr + 1])
+        if (map[ptr] > map[ptr + 1] && map[ptr] > l && find(treeMarked.begin(), treeMarked.end(), ptr) == treeMarked.end()) {
+          l = map[ptr];
           treeMarked.push_back(ptr);
+        }
         ptr -= 1;
       }
     }
@@ -105,6 +113,19 @@ int main() {
   cout << "marked : ";
   for (auto c : treeMarked)
     cout << c << ",";
+  cout << endl;
+
+  int fooptr = 0;
+  for (int i = 1; i <= size * size; i++) {
+
+    if (treeMarked[fooptr] == i - 1) {
+      cout << "1";
+      fooptr++;
+    } else 
+      cout << "0";
+    if (i % size == 0)
+      cout << endl;
+  }
   cout << endl;
 
   cout << tree << " tree number" << endl;
