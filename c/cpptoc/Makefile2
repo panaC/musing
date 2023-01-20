@@ -71,3 +71,4 @@ clean :
 
 
 # il faut que le linker soit g++ et pas gcc pour compiler l'executable
+# cf https://isocpp.org/wiki/faq/mixing-c-and-cpp#overview-mixing-langs
