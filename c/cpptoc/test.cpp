@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 
-void test(char* str) {
+extern "C" void test(char* str) {
 
     std::string s(str);
 

@@ -1,0 +1,73 @@
+
+# build with gcc instead of g++
+test : test.o main.o 
+	gcc test.o main.o -o test
+
+test.o : test.h test.cpp
+	g++ -Wall -c test.cpp -o test.o
+
+main.o : test.h main.c
+	gcc -Wall -c main.c -o main.o
+
+.PHONY: clean
+clean : 
+	rm *.o test
+
+# main > make -f Makefile2                                                                                                                                           ~/Documents/musing/c/cpptoc
+# g++ -Wall -c test.cpp -o test.o
+# gcc -Wall -c main.c -o main.o
+# gcc test.o main.o -o test
+# Undefined symbols for architecture arm64:
+#   "std::__1::locale::use_facet(std::__1::locale::id&) const", referenced from:
+#       std::__1::ctype<char> const& std::__1::use_facet<std::__1::ctype<char> >(std::__1::locale const&) in test.o
+#   "std::__1::ios_base::getloc() const", referenced from:
+#       std::__1::basic_ios<char, std::__1::char_traits<char> >::widen(char) const in test.o
+#   "std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__init(char const*, unsigned long)", referenced from:
+#       std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string<std::__1::nullptr_t>(char const*) in test.o
+#   "std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::__init(unsigned long, char)", referenced from:
+#       std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string(unsigned long, char) in test.o
+#   "std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::~basic_string()", referenced from:
+#       _test in test.o
+#       std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char) in test.o
+#   "std::__1::basic_ostream<char, std::__1::char_traits<char> >::put(char)", referenced from:
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::endl<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&) in test.o
+#   "std::__1::basic_ostream<char, std::__1::char_traits<char> >::flush()", referenced from:
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::endl<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&) in test.o
+#   "std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::sentry(std::__1::basic_ostream<char, std::__1::char_traits<char> >&)", referenced from:
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long) in test.o
+#   "std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry::~sentry()", referenced from:
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long) in test.o
+#   "std::__1::cout", referenced from:
+#       _test in test.o
+#   "std::__1::ctype<char>::id", referenced from:
+#       std::__1::ctype<char> const& std::__1::use_facet<std::__1::ctype<char> >(std::__1::locale const&) in test.o
+#   "std::__1::locale::~locale()", referenced from:
+#       std::__1::basic_ios<char, std::__1::char_traits<char> >::widen(char) const in test.o
+#   "std::__1::ios_base::__set_badbit_and_consider_rethrow()", referenced from:
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long) in test.o
+#   "std::__1::ios_base::clear(unsigned int)", referenced from:
+#       std::__1::ios_base::setstate(unsigned int) in test.o
+#   "std::terminate()", referenced from:
+#       ___clang_call_terminate in test.o
+#   "___cxa_begin_catch", referenced from:
+#       ___clang_call_terminate in test.o
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long) in test.o
+#   "___cxa_call_unexpected", referenced from:
+#       std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >::failed() const in test.o
+#       std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >::ostreambuf_iterator(std::__1::basic_ostream<char, std::__1::char_traits<char> >&) in test.o
+#   "___cxa_end_catch", referenced from:
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long) in test.o
+#   "___gxx_personality_v0", referenced from:
+#       _test in test.o
+#       std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long) in test.o
+#       std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char) in test.o
+#       std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >::failed() const in test.o
+#       std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >::ostreambuf_iterator(std::__1::basic_ostream<char, std::__1::char_traits<char> >&) in test.o
+#       std::__1::basic_ios<char, std::__1::char_traits<char> >::widen(char) const in test.o
+# ld: symbol(s) not found for architecture arm64
+# clang: error: linker command failed with exit code 1 (use -v to see invocation)
+# make: *** [test] Error 1
+# main >
+
+
+# il faut que le linker soit g++ et pas gcc pour compiler l'executable

@@ -7,3 +7,8 @@ test.o : test.h test.cpp
 
 main.o : test.h main.c
 	gcc -Wall -c main.c -o main.o
+
+
+.PHONY: clean
+clean : 
+	rm *.o test
