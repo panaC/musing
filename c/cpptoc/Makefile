@@ -1,4 +1,10 @@
 
+libtest.a: test.o
+	ar rcs $@ $<
+
+test2: libtest.a main.o
+	g++ -L. -ltest -I. main.o -o test2
+
 test : test.o main.o 
 	g++ test.o main.o -o test
 
