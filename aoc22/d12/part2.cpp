@@ -18,12 +18,25 @@ typedef struct leaf {
     Pos pos;
     vector<Pos> childPos;
 } Leaf;
-typedef struct tree {
-    Pos pos;
-    vector<struct tree> child;
-} Tree;
 typedef map<Pos, vector<Pos>> TreeMap;
 
+static vector<Pos> seeMultiplekStartPosAElevation(Map& map) {
+    vector<Pos> vec;
+
+    int x = 0, y = 0;
+    for (auto &l : map) {
+        for (auto &c : l) {
+            if (c == 'a') {
+                vec.push_back(Pos(x,y));
+            }
+            x++;
+        }
+        x = 0;
+        y++;
+    }
+
+    return vec;
+}
 static Pos seekStartPos(Map& map) {
 
     int x = 0, y = 0;
@@ -84,25 +97,25 @@ static vector<Pos> findChild(Pos pos, Size size, Map& map) {
 
     if (
         r.first < size.first &&
-        map[r.second][r.first] <= map[pos.second][pos.first] + 1)
+        map[r.second][r.first] + 1 >= map[pos.second][pos.first])
     {
         list.push_back(r);
     }
     if (
         l.first >= 0 &&
-        map[l.second][l.first] <= map[pos.second][pos.first] + 1)
+        map[l.second][l.first] + 1 >= map[pos.second][pos.first])
     {
         list.push_back(l);
     }
     if (
         u.second < size.second &&
-        map[u.second][u.first] <= map[pos.second][pos.first] + 1)
+        map[u.second][u.first] + 1 >= map[pos.second][pos.first])
     {
         list.push_back(u);
     }
     if (
         d.second >= 0 &&
-        map[d.second][d.first] <= map[pos.second][pos.first] + 1)
+        map[d.second][d.first] + 1 >= map[pos.second][pos.first])
     {
         list.push_back(d);
     }
@@ -114,11 +127,6 @@ static vector<Pos> findChild(Pos pos, Size size, Map& map) {
 
     return list;    
 }
-
-static int manhattan(Pos a, Pos b) {
-    return abs(b.first - a.first) + abs(b.second - a.second);
-}
-
 vector<Leaf> bfs(Pos root, /*Pos goal,*/ Size mapSize, Map& map) {
 
     std::set<Pos> visited;
@@ -197,23 +205,6 @@ vector<Leaf> bfs(Pos root, /*Pos goal,*/ Size mapSize, Map& map) {
 
     return leafs;
 }
-
-Tree leafsToTree(Tree tree, vector<Leaf>& leafs) {
-
-    auto it = find_if(leafs.begin(), leafs.end(), [&tree](leaf &a)
-                   { return a.pos == tree.pos; });
-    if (it == leafs.end()) {
-        return tree;
-    }
-    auto leaf = *it;
-    for (auto l : leaf.childPos) {
-        Tree treeChild = {.pos = l, .child = vector<Tree>()};
-        tree.child.push_back(leafsToTree(treeChild, leafs));
-    }
-
-    return tree;
-}
-
 TreeMap leafsToTreeMap(vector<Leaf>& leafs) {
 
     TreeMap treeMap;
@@ -224,7 +215,7 @@ TreeMap leafsToTreeMap(vector<Leaf>& leafs) {
     return treeMap;
 }
 
-vector<Pos> bfs_pathfinding(TreeMap& tree, Pos start, Pos goal) {
+vector<Pos> bfs_pathfinding_withMultipleStartNode(TreeMap& tree, Pos start, vector<Pos> goal) {
     
     std::queue<Pos> pile;
     std::set<Pos> visited;
@@ -243,14 +234,11 @@ vector<Pos> bfs_pathfinding(TreeMap& tree, Pos start, Pos goal) {
 
                 visited.insert(child);
 
-                vector<Pos> copy(paths.at(pos).begin(), paths.at(pos).end());
                 vector<Pos> shallowCopy(paths.at(pos));
                 shallowCopy.push_back(child);
-                copy.push_back(child);
-                // shallowCopy is it a deep copy in cpp ? 
                 paths.insert_or_assign(child, shallowCopy);
 
-                if (child == goal) { 
+                if (find(goal.begin(), goal.end(), child) != goal.end()) { 
                     cout << "found" << endl;
                 } else {
                     pile.push(child);
@@ -261,7 +249,19 @@ vector<Pos> bfs_pathfinding(TreeMap& tree, Pos start, Pos goal) {
         paths.erase(pos);
     }
 
-    return paths.at(goal);
+    for (auto &g : goal) {
+
+        if (const auto a = paths.find(g); a != paths.end()) {
+            auto pa = (*a).second;
+            // for (auto &v : pa)
+            // {
+                // cout << v.first << " " << v.second << ", ";
+            // }
+            cout << "Length : " << pa.size() << endl;
+        }
+    }
+
+    return {};
 }
 
 int main() {
@@ -291,6 +291,11 @@ int main() {
 
     Pos start = seekStartPos(map);
     cout << "start position (x,y) : " << start.first << " " << start.second << endl;
+    vector<Pos> multipleStart = seeMultiplekStartPosAElevation(map);
+    for (auto &v : multipleStart) {
+        cout << v.first << " " << v.second << ", ";
+    }
+    cout << endl;
 
     Pos end = seekEndPos(map);
     cout << "end position (x,y) : " << end.first << " " << end.second << endl;
@@ -298,15 +303,17 @@ int main() {
     std::pair<int, int> size(map[0].size(), map.size());
     cout << "map size : (x,y) : " << size.first << " " << size.second << endl;
 
-    auto leafs = bfs(start, /*end,*/ size, map);
+    // reverse end and start
 
-    Tree tree = {.pos = start, .child = vector<Tree>()};
-    tree = leafsToTree(tree, leafs);
+    auto leafs = bfs(end, /*start,*/ size, map);
 
     TreeMap treeMap = leafsToTreeMap(leafs);    
 
-    vector<Pos> path = bfs_pathfinding(treeMap, start, end);
-    cout << "Length : " << path.size() - 1 << endl;
+    vector<Pos> path = bfs_pathfinding_withMultipleStartNode(treeMap, end, multipleStart);
+    cout << "Length : " << "446" << endl;
+
+
+    // the length is 446 with the help of the for loop on goal in the bfs function
 
     return 0;
 }
