@@ -175,3 +175,39 @@ func GetCategories() ([]Category, error) {
 
 	return categories, nil
 }
+
+func GetAuthors() ([]Author, error) {
+    var authors []Author
+    if err := db.Find(&authors).Error; err != nil {
+        if errors.Is(err, gorm.ErrRecordNotFound) {
+            return nil, errors.New("No authors found")
+        }
+        return nil, err
+    }
+
+    return authors, nil
+}
+
+func GetPublishers() ([]Publisher, error) {
+    var publishers []Publisher
+    if err := db.Find(&publishers).Error; err != nil {
+        if errors.Is(err, gorm.ErrRecordNotFound) {
+            return nil, errors.New("No publishers found")
+        }
+        return nil, err
+    }
+
+    return publishers, nil
+}
+
+func GetLanguages() ([]Language, error) {
+    var languages []Language
+    if err := db.Find(&languages).Error; err != nil {
+        if errors.Is(err, gorm.ErrRecordNotFound) {
+            return nil, errors.New("No languages found")
+        }
+        return nil, err
+    }
+
+    return languages, nil
+}
