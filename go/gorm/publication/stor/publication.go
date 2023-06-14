@@ -156,6 +156,8 @@ func UpdatePublication(publication *Publication) error {
 }
 
 // DeletePublication deletes a publication
+// TODO: delete many2many link if empty
+// category,publisher,... items are not deleted if is only linked with this deleted publication
 func DeletePublication(publication *Publication) error {
 	if err := db.Delete(publication).Error; err != nil {
 		return err
