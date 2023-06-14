@@ -61,6 +61,17 @@ func GetPublicationByID(id uint) (*Publication, error) {
 	return &publication, nil
 }
 
+func GetAllPublications(page int, pageSize int) ([]Publication, error) {
+	var publications []Publication
+	offset := (page - 1) * pageSize
+
+	if err := db.Offset(offset).Limit(pageSize).Find(&publications).Error != nil {
+		return nil, result.Error
+	}
+
+	return publications, nil
+}
+
 // GetPublicationByID retrieves a publication by Title
 func GetPublicationByTitle(title string) (*Publication, error) {
 	var publication Publication
