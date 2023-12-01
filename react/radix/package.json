@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@radix-ui/colors": "latest",
+    "@radix-ui/react-icons": "latest",
+    "@radix-ui/react-popover": "latest",
+    "classnames": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest"
+  },
+  "scripts": {
+    "start": "vite"
+  }
+}
