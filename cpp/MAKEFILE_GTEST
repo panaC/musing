@@ -55,3 +55,4 @@ clean:
 
 day%:
 	./$(TARGET) $@ 1 input/$@_1
+

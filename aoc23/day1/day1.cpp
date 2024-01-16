@@ -5,21 +5,21 @@
 #include <print>
 #include <string>
 #include <unordered_map>
+#include <iostream>
 
 using namespace std;
 
 inline bool isdigit(char v) { return v >= '0' && v <= '9'; }
 
-int part1(string fp) {
+int part1(istream& in) {
 
-  ifstream inputFile(fp);
   int total = 0;
   int value = 0;
   char digit1 = '-';
   char digit2 = '-';
 
   string str;
-  while (getline(inputFile, str)) {
+  while (getline(in, str)) {
     value = 0;
     digit1 = '-';
     digit2 = '-';
@@ -54,9 +54,8 @@ int part1(string fp) {
   return total;
 }
 
-int part2(string fp) {
+int part2(istream& in) {
 
-  ifstream inputFile(fp);
   int total = 0;
   int value = 0;
   char digit1 = '-';
@@ -67,7 +66,7 @@ int part2(string fp) {
       {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"}};
 
   string str;
-  while (getline(inputFile, str)) {
+  while (getline(in, str)) {
     value = 0;
     digit1 = '-';
     digit2 = '-';
@@ -123,10 +122,11 @@ int part2(string fp) {
   return total;
 }
 
-int day1(int part, string filePath) {
-  if (getenv("DEBUG"))
-    println("running {} {}", part, filePath);
-  if (part < 2)
-    return part1(filePath);
-  return part2(filePath);
+int main(int argc, char **argv)
+{
+  if (argc > 1 && argv[1][0] == '2')
+    println("{}", part2(cin));
+  else
+    println("{}", part1(cin));
+  return 0;
 }
