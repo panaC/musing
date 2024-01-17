@@ -1,14 +1,18 @@
 const std = @import("std");
 fn print(comptime fmt: []const u8, args: anytype) void {
-    if (std.mem.eql(u8, std.os.getenvZ("DEBUG").?, "1"))
+    if (std.mem.eql(u8, std.os.getenvZ("DEBUG").?, "1")) {
         std.debug.print(fmt, args);
+    } else {
+        const stdout = std.io.getStdOut().writer();
+        stdout.print(fmt, args) catch return;
+    }
 }
 
 // doesn't work with zig run outside package path
 // const input = @embedFile("../input/day1_1");
 
 pub fn main() !void {
-    const inputFilename = "input/day1_1";
+    const inputFilename = "in";
     const file = try std.fs.cwd().openFile(inputFilename, .{});
     defer file.close();
 
