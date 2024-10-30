@@ -1,0 +1,65 @@
+
+<html>
+
+<head>
+
+<!-- Load Babel -->
+<!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/javascript">
+Babel.registerPreset("react-plus",
+{
+  "presets": [
+    [
+      Babel.availablePresets["react"],
+      {
+        "pragma": "h", // default pragma is React.createElement (only in classic runtime)
+        "pragmaFrag": "Fragment", // default is React.Fragment (only in classic runtime)
+        "throwIfNamespace": false, // defaults to true
+        "runtime": "classic" // defaults to classic
+        // "importSource": "custom-jsx-library" // defaults to react (only in automatic runtime)
+      }
+    ]
+  ]
+}
+);
+</script>
+<!-- Your custom script here -->
+<script type="text/babel" data-type="module" data-presets="react-plus" defer> 
+
+import { h, render } from 'https://esm.sh/preact';
+import { useState } from 'https://esm.sh/preact/hooks';
+
+export default function DiceRoll(){
+  const getRandomNumber = () => {
+    return Math.ceil(Math.random() * 6);
+  };
+
+  const [num, setNum] = useState(getRandomNumber());
+
+  const handleClick = () => {
+    const newNum = getRandomNumber();
+    setNum(newNum);
+  };
+
+  return (
+    <div>
+      Your dice roll: {num}.
+      <button onClick={handleClick}>Click to get a new number</button>
+    </div>
+  );
+};
+
+const app = document.getElementById("app");
+
+render(<DiceRoll/>, app);
+
+</script>
+
+</head>
+
+<body>
+<div id="app"/>
+</body>
+
+</script>
