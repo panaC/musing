@@ -4,9 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "tsc": "tsc",
+    "build": "npm run tsc && npm run esbuild",
     "esbuild": "esbuild build/index.mjs --bundle --format=esm --target=esnext --outfile=build/index.js",
-    "http": "python3 -m http.server --protocol HTTP/1.1"
+    "serve": "python3 -m http.server --protocol HTTP/1.1"
   },
   "keywords": [],
   "author": "",
