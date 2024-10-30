@@ -1,0 +1,484 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+    <title>Readium-annotator DEMO</title>
+    <head>
+        <script defer src="../build/index.js"></script>
+    </head>
+    <body>
+        <div id="source">
+            <div id="demo-w3c">
+                <div>
+                    Won't scroll if matched:
+                    match suffix
+                    match suffix3
+                    <div class="spacer"></div>
+                    <p>
+                      The quick brown fox jumped over the lazy dog.
+                      a a b b b c
+                    </p>
+                    <p>
+                      foo foo foo bar bar bar
+                    </p>
+                    <p>
+                      match suffix2
+                      prefix match suffix3 matchEnd suffix4 matchEnd suffix5
+                    </p>
+                    <p>
+                      Lorem
+
+                      <br> <i>    </i>
+                      <div>  &nbsp </div>
+                      <!-- This <p> puts lots of non textual stuff between words -->
+                      <div style="display: none">This isn't rendered</div>
+                      <div style="visibility: hidden">This also isn't visible</div>
+                      <iframe srcdoc="Inner Iframe"></iframe>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAEUlEQVR42mNk+M+AARiHsiAAcCIKAYwFoQ8AAAAASUVORK5CYII=">
+
+                          &nbsp; &nbsp    Ipsum
+
+                      Whitespace
+
+                      <br> <i>    </i>
+                      <div>  &nbsp </div>
+                      <!-- This <p> puts lots of non textual stuff between words -->
+                      <div style="display: none">This isn't rendered</div>
+                      <div style="visibility: hidden">This also isn't visible</div>
+                      <iframe srcdoc="Inner Iframe"></iframe>
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAEUlEQVR42mNk+M+AARiHsiAAcCIKAYwFoQ8AAAAASUVORK5CYII=">
+                          &nbsp; &nbsp
+
+                      Dipsum
+
+                    <div>Text
+                      <div style="display: none">This isn't rendered</div>
+                      with display: none
+                    </div>
+                    <div>Text
+                      <div style="visibility: hidden">This also isn't visible</div>
+                       with visibility: hidden as block boundary
+                      </div>
+                    <div>Text
+                      <span style="visibility: hidden">This also isn't visible</span>
+                        with visibility: hidden as inline
+                      </div>
+                    <div>Text
+                      <iframe srcdoc="Inner Iframe"></iframe>
+                      with Iframe
+                    </div>
+                    <div>Text
+                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAEUlEQVR42mNk+M+AARiHsiAAcCIKAYwFoQ8AAAAASUVORK5CYII=">
+                      with image
+                    </div>
+
+                    </p>
+                    <p>
+                      This text appears at the end of the document
+                    </p
+                </div>
+                <div id="original-content">
+                    <h2>Original Content</h2>
+                    <p>This is a paragraph of text.</p>
+                    <ul>
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <div>
+                        <span>This is a span within a div.</span>
+                    </div>
+                </div>
+            </div>
+            <div id="demo-table">
+                <p>
+                    text text text text text text text text text text text text
+                    text text text text text
+                </p>
+                <table border="1">
+                    <tr>
+                        <th>COLUMN 1</th>
+                        <th>COLUMN 2</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                        <td>
+                            word1 word2 word3 word4 word5 word6 word7 word8
+                            word9 word10 word11 word12 word13 word14 word15
+                            word16 word17 word18 word19 word20 word21 word22
+                            word23 word24 word25 word26 word27 word28 word29
+                            word30
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    text text text text text text text text text text text text
+                    text text text text text
+                </p>
+            </div>
+        </div>
+
+        <div id="selector-content" style="display: flex; align-content: center;">
+
+            <style>
+            textarea {
+                width: 300px;
+                height: 300px;
+                box-sizing: border-box; /* Ensures padding and border are included in the width and height */
+                padding: 0; /* Optional: Adjust padding as needed */
+                border: 2px solid navy; /* Optional: Adjust border as needed */
+            }
+            </style>
+
+            <!-- <div style="display: block;">
+                <label for="selector-in">Selector INPUT : </label>
+            <textarea id="selector-in"></textarea>
+            </div> -->
+
+            <div style="display: block;">
+            <div>
+                <label for="selector-out-textquote">TextQuoteSelector : </label>
+                <pre id="selector-out-textquote"></pre>
+            </div>
+            <div>
+                <label for="selector-out-textposition">TextPositionSelector : </label>
+                <pre id="selector-out-textposition"></pre>
+            </div>
+            <div>
+                <label for="selector-out-range">RangeSelector : </label>
+                <pre id="selector-out-range"></pre>
+            </div>
+            <div>
+                <label for="selector-out-rangecss">RangeCssSelector : </label>
+                <pre id="selector-out-rangecss"></pre>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

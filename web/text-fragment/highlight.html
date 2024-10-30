@@ -1,0 +1,444 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta
+            http-equiv="Content-Type"
+            content="text/html; charset=ISO-8859-1"
+        />
+        <title>
+            clientRectangles BUG REPORT, HTML table with row break caused by CSS
+            columns
+        </title>
+        <script>
+            function debounce(func, timeout) {
+                let timer;
+                return (...args) => {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => {
+                        func.apply(this, args);
+                    }, timeout);
+                };
+            }
+            const debouncedSelectionChangeHandler = debounce(() => {
+                const selection = document.getSelection();
+                if (
+                    selection.isCollapsed ||
+                    !selection.anchorNode ||
+                    !selection.focusNode
+                ) {
+                    return;
+                }
+                console.log(selection.toString());
+
+                let r =
+                    selection.rangeCount === 1
+                        ? selection.getRangeAt(0)
+                        : undefined;
+                console.log(r);
+                if (!r) {
+                    const range = new Range();
+                    range.setStart(
+                        selection.anchorNode,
+                        selection.anchorOffset,
+                    );
+                    range.setEnd(selection.focusNode, selection.focusOffset);
+                    if (!range.collapsed) {
+                        console.log("range not collapsed");
+                        r = range;
+                    } else {
+                        const rangeReverse = new Range();
+                        rangeReverse.setStart(
+                            selection.focusNode,
+                            selection.focusOffset,
+                        );
+                        rangeReverse.setEnd(
+                            selection.anchorNode,
+                            selection.anchorOffset,
+                        );
+                        if (!rangeReverse.collapsed) {
+                            console.log("range not collapsed");
+                            r = range;
+                        }
+                    }
+                }
+                if (!r || r.collapsed) {
+                    console.log("return");
+                    return;
+                }
+                // r = normalizeRange(r);
+
+                // const rect = r.getBoundingClientRect();
+                for (const rect of r.getClientRects()) {
+                    div = document.createElement("div");
+                    div.setAttribute("class", "highlight");
+                    div.setAttribute(
+                        "style",
+                        `backgroundColor: red; opacity: 0.7; position: absolute; width: ${rect.width}px; height: ${rect.height}px; left: ${rect.left}px; right: ${rect.right}px; top: ${rect.top}px; bottom: ${rect.bottom}px;`,
+                    );
+                    div.style.backgroundColor = "red";
+                    div.style.opacity = "0.7";
+                    div.style.position = "absolute";
+                    // creates inset!
+                    // div.style.left = rect.left + "px";
+                    // div.style.top = rect.top + "px";
+                    // div.style.right = rect.right + "px";
+                    // div.style.bottom = rect.bottom + "px";
+                    document.body.appendChild(div);
+                }
+                // selection.removeAllRanges();
+            }, 500);
+            document.addEventListener("DOMContentLoaded", () => {
+                const createHighlightFromSelection = () => {
+                    // const selection = document.getSelection();
+                    // if (selection.isCollapsed) {
+                    //     return;
+                    // }
+                    const divs = document.querySelectorAll(".highlight");
+                    if (divs) {
+                        for (const div of divs) {
+                            if (div) {
+                                div.parentElement?.removeChild(div);
+                            }
+                        }
+                    }
+                    debouncedSelectionChangeHandler();
+                };
+                document.addEventListener(
+                    "selectionchange",
+                    createHighlightFromSelection,
+                );
+                window.addEventListener("resize", createHighlightFromSelection);
+            });
+        </script>
+        <style>
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+            html {
+                column-width: 30rem;
+                column-count: auto;
+                /* column-fill: auto; */
+                height: 100vh;
+                max-height: 100vh;
+            }
+            body {
+                position: relative;
+            }
+            table {
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            text text text text text text text text text text text text text
+            text text text text
+        </p>
+        <table border="1">
+            <tr>
+                <th>COLUMN 1</th>
+                <th>COLUMN 2</th>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+                <td>
+                    word1 word2 word3 word4 word5 word6 word7 word8 word9 word10
+                    word11 word12 word13 word14 word15 word16 word17 word18
+                    word19 word20 word21 word22 word23 word24 word25 word26
+                    word27 word28 word29 word30
+                </td>
+            </tr>
+        </table>
+        <p>
+            text text text text text text text text text text text text text
+            text text text text
+        </p>
+    </body>
+</html>

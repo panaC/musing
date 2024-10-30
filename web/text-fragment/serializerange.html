@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DOM Range Serialization</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            #original-content {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            #serialized-content {
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>DOM Range Serialization Example</h1>
+
+        <div id="original-content">
+            <h2>Original Content</h2>
+            <p>This is a paragraph of text.</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <div>
+                <span>This is a span within a div.</span>
+            </div>
+        </div>
+
+        <div id="serialized-content">
+            <h2>Serialized Content</h2>
+            <pre id="serialized-html"></pre>
+        </div>
+
+        <script>
+            const xmlSerializer = new XMLSerializer();
+
+            // Function to get the text content within the range
+            function getRangeText(range) {
+                const { startContainer, endContainer, startOffset, endOffset } =
+                    range;
+                const startContainerText = startContainer.textContent;
+                const endContainerText = endContainer.textContent;
+
+                let startText = startContainerText.substring(0, startOffset);
+                let endText = endContainerText.substring(0, endOffset);
+
+                let rangeText = "";
+                // If start and end containers are the same, we need to handle it differently
+                if (startContainer === endContainer) {
+                    rangeText = startContainerText.substring(
+                        startOffset,
+                        endOffset,
+                    );
+                } else {
+                    // Get the text content of all nodes between start and end containers
+                    let rangeText = startContainerText.substring(startOffset);
+                    let currentNode = startContainer;
+                    while (currentNode !== endContainer) {
+                        currentNode = currentNode.nextSibling;
+                        if (currentNode) {
+                            rangeText += currentNode.textContent;
+                        }
+                    }
+                    rangeText += endText;
+                }
+
+                // Serialize the start and end containers
+                const startContainerSerialized =
+                    xmlSerializer.serializeToString(startContainer);
+                const endContainerSerialized =
+                    xmlSerializer.serializeToString(endContainer);
+
+                // Create a JSON object to store the serialized range information
+                const serializedRange = {
+                    startContainer: startContainerSerialized,
+                    startOffset: startOffset,
+                    endContainer: endContainerSerialized,
+                    endOffset: endOffset,
+                    rangeText: rangeText,
+                };
+
+                return serializedRange;
+            }
+
+            // Get the text content within the range
+            // Select the range of elements to serialize
+            const originalContent = document.getElementById("original-content");
+            const range = document.createRange();
+            range.selectNodeContents(originalContent);
+            const serializedRange = getRangeText(range);
+
+            // Convert the JSON object to a string
+            const serializedRangeString = JSON.stringify(serializedRange);
+
+            console.log(serializedRangeString);
+            document.getElementById("serialized-html").textContent =
+                serializedRangeString;
+        </script>
+    </body>
+</html>

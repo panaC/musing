@@ -1,0 +1,173 @@
+<!doctype html>
+<title>Tests find-a-range-from-a-text-directive algorithm</title>
+<script>
+function debounce(func, timeout) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func.apply(this, args);
+        }, timeout);
+    };
+}
+const debouncedSelectionChangeHandler = debounce(() => {
+    const selection = document.getSelection();
+    if (
+        selection.isCollapsed ||
+        !selection.anchorNode ||
+        !selection.focusNode
+    ) {
+        return;
+    }
+    console.log(selection.toString());
+
+    let r =
+        selection.rangeCount === 1
+            ? selection.getRangeAt(0)
+            : undefined;
+    if (!r) {
+        const range = new Range();
+        range.setStart(
+            selection.anchorNode,
+            selection.anchorOffset,
+        );
+        range.setEnd(selection.focusNode, selection.focusOffset);
+        if (!range.collapsed) {
+            r = range;
+        } else {
+            const rangeReverse = new Range();
+            rangeReverse.setStart(
+                selection.focusNode,
+                selection.focusOffset,
+            );
+            rangeReverse.setEnd(
+                selection.anchorNode,
+                selection.anchorOffset,
+            );
+            if (!rangeReverse.collapsed) {
+                r = range;
+            }
+        }
+    }
+    if (!r || r.collapsed) {
+        return;
+    }
+    // r = normalizeRange(r);
+
+    // const rect = r.getBoundingClientRect();
+    for (const rect of r.getClientRects()) {
+        div = document.createElement("div");
+        div.setAttribute("class", "highlight");
+        div.setAttribute(
+            "style",
+            `backgroundColor: red; opacity: 0.7; position: absolute; width: ${rect.width}px; height: ${rect.height}px; left: ${rect.left}px; right: ${rect.right}px; top: ${rect.top}px; bottom: ${rect.bottom}px;`,
+        );
+        div.style.backgroundColor = "red";
+        div.style.opacity = "0.7";
+        div.style.position = "absolute";
+        // creates inset!
+        // div.style.left = rect.left + "px";
+        // div.style.top = rect.top + "px";
+        // div.style.right = rect.right + "px";
+        // div.style.bottom = rect.bottom + "px";
+        document.body.appendChild(div);
+    }
+    // selection.removeAllRanges();
+}, 500);
+document.addEventListener("DOMContentLoaded", () => {
+    const createHighlightFromSelection = () => {
+        // const selection = document.getSelection();
+        // if (selection.isCollapsed) {
+        //     return;
+        // }
+        const divs = document.querySelectorAll(".highlight");
+        if (divs) {
+            for (const div of divs) {
+                if (div) {
+                    div.parentElement?.removeChild(div);
+                }
+            }
+        }
+        debouncedSelectionChangeHandler();
+    };
+    document.addEventListener(
+        "selectionchange",
+        createHighlightFromSelection,
+    );
+    window.addEventListener("resize", createHighlightFromSelection);
+});
+</script>
+<style>
+  .spacer {
+    width: 50vw;
+    height: 200vh;
+  }
+</style>
+<body>
+  Won't scroll if matched:
+  match suffix
+  match suffix3
+  <div class="spacer"></div>
+  <p>
+    The quick brown fox jumped over the lazy dog.
+    a a b b b c
+  </p>
+  <p>
+    foo foo foo bar bar bar
+  </p>
+  <p>
+    match suffix2
+    prefix match suffix3 matchEnd suffix4 matchEnd suffix5
+  </p>
+  <p>
+    Lorem
+
+    <br> <i>    </i>
+    <div>  &nbsp </div>
+    <!-- This <p> puts lots of non textual stuff between words -->
+    <div style="display: none">This isn't rendered</div>
+    <div style="visibility: hidden">This also isn't visible</div>
+    <iframe srcdoc="Inner Iframe"></iframe>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAEUlEQVR42mNk+M+AARiHsiAAcCIKAYwFoQ8AAAAASUVORK5CYII=">
+
+        &nbsp; &nbsp    Ipsum
+
+    Whitespace
+
+    <br> <i>    </i>
+    <div>  &nbsp </div>
+    <!-- This <p> puts lots of non textual stuff between words -->
+    <div style="display: none">This isn't rendered</div>
+    <div style="visibility: hidden">This also isn't visible</div>
+    <iframe srcdoc="Inner Iframe"></iframe>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAEUlEQVR42mNk+M+AARiHsiAAcCIKAYwFoQ8AAAAASUVORK5CYII=">
+        &nbsp; &nbsp
+
+    Dipsum
+
+  <div>Text
+    <div style="display: none">This isn't rendered</div>
+    with display: none
+  </div>
+  <div>Text
+    <div style="visibility: hidden">This also isn't visible</div>
+     with visibility: hidden as block boundary
+    </div>
+  <div>Text
+    <span style="visibility: hidden">This also isn't visible</span>
+      with visibility: hidden as inline
+    </div>
+  <div>Text
+    <iframe srcdoc="Inner Iframe"></iframe>
+    with Iframe
+  </div>
+  <div>Text
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAEUlEQVR42mNk+M+AARiHsiAAcCIKAYwFoQ8AAAAASUVORK5CYII=">
+    with image
+  </div>
+
+  </p>
+  <p>
+    This text appears at the end of the document
+  </p
+</body>

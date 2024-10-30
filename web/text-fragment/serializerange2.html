@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Range Serialization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #original-content {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #serialized-content {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>DOM Range Serialization Example</h1>
+
+<div id="original-content">
+    <h2>Original Content</h2>
+    <p>This is a paragraph of text.</p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <div>
+        <span>This is a span within a div.</span>
+    </div>
+</div>
+
+<div id="serialized-content">
+    <h2>Serialized Content</h2>
+    <pre id="serialized-html"></pre>
+</div>
+
+<script>
+    // Function to serialize a DOM range
+    function serializeDOMRange(range) {
+        // Create a DocumentFragment to hold the range
+        const fragment = range.cloneContents();
+        // Serialize the fragment to HTML
+        const serializedHTML = fragment.childNodes.length === 0 ? '' : fragment.childNodes.outerHTML || fragment.childNodes.textContent;
+        if (fragment.childNodes.length > 1) {
+            let html = '';
+            for (let i = 0; i < fragment.childNodes.length; i++) {
+                html += fragment.childNodes[i].outerHTML || fragment.childNodes[i].textContent;
+            }
+            return html;
+        }
+        return serializedHTML;
+    }
+
+    // Select the range of elements to serialize
+    const originalContent = document.getElementById('original-content');
+    const range = document.createRange();
+    range.selectNodeContents(originalContent);
+
+    // Serialize the range and display the result
+    const serializedHTML = serializeDOMRange(range);
+    document.getElementById('serialized-html').textContent = serializedHTML;
+</script>
+
+</body>
+</html>
