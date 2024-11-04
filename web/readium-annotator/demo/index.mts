@@ -21,7 +21,41 @@ import {
   type CssSelector,
 } from "@apache-annotator/selector";
 
-import { anchor } from "./highlight.mjs";
+
+import { anchor, cleanup } from "./highlight.mjs";
+
+import { TextQuoteAnchor, TextPositionAnchor } from "../vendor/anchoring/types.js";
+
+
+/*
+function areRangesEqual(ranges: Range[]) {
+  if (ranges.length < 2) return false;
+  const rangeA = ranges[0];
+
+  for (const rangeB of  ranges.slice(1)) {
+    if (
+      rangeA.startContainer === rangeB.startContainer &&
+      rangeA.startOffset === rangeB.startOffset &&
+      rangeA.endContainer === rangeB.endContainer &&
+      rangeA.endOffset === rangeB.endOffset &&
+      rangeA.commonAncestorContainer === rangeB.commonAncestorContainer
+    ) continue;
+    else return false;
+  }
+  return true;
+}
+*/
+
+function debounce(func: any, timeout: any) {
+  let timer: any;
+  return (...args: any[]) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      // @ts-expect-error
+      func.apply(this, args);
+    }, timeout);
+  };
+}
 
 const createMatcher = makeRefinable((selector: any) => {
   // @ts-expect-error
@@ -129,58 +163,110 @@ const describeRangeCssSelector = async (range: Range): Promise<CssSelector> => {
   };
 };
 
-async function onSelectionChange() {
+const debounceOnSelectionChange = debounce(async function onSelectionChange() {
   const selection = document.getSelection();
   if (!selection) return;
-  const source = document.getElementById("source");
-  if (!source) return;
+  const source = document.getElementById("source") as HTMLElement;
   for (let i = 0; i < selection.rangeCount; i++) {
     const range = selection.getRangeAt(i);
     let selector: Selector;
     let elem: HTMLElement | null;
     let selectorToHighlight: Selector;
+    let matchAll: any;
     const ranges = [];
 
-    selector = await describeTextPosition(range, source);
-    let matchAll = createMatcher(selector);
-    for await (const range of matchAll(source)) {
-      ranges.push(range);
-    }
     elem = document.getElementById("selector-out-textposition");
-    if (elem) elem.innerText = JSON.stringify(selector, null, 4);
-
-    selector = await describeTextQuote(range, source, {
-      minimumQuoteLength: 10,
-    });
-    matchAll = createMatcher(selector);
-    for await (const range of matchAll(source)) {
-      ranges.push(range);
+    try {
+      selector = await describeTextPosition(range, source);
+      matchAll = createMatcher(selector);
+      for await (const range of matchAll(source)) {
+        ranges.push([range, "pos"]);
+      }
+      if (elem) elem.innerText = JSON.stringify(selector, null, 4);
+    } catch (e) {
+      console.error("TextPositionSelector error: ", e);
+      if (elem) elem.innerText = "TextPositionSelector error: " +  e;
     }
+
+    elem = document.getElementById("selector-out-textposition-hypo");
+    try {
+
+      selector = TextQuoteAnchor.fromRange(source, range).toPositionAnchor().toSelector();
+      const rangeFound = TextPositionAnchor.fromSelector(source, selector).toRange();
+      if (rangeFound) ranges.push([rangeFound, "poshypo"]);
+      if (elem) elem.innerText = JSON.stringify(selector, null, 4);
+    } catch (e) {
+      console.error("TextPositionSelectorHypothesis error: ", e);
+      if (elem) elem.innerText = "TextPositionSelectorHypothesis error: " +  e;
+    }
+
+    elem = document.getElementById("selector-out-textquote-hypo");
+    try {
+
+      selector = TextQuoteAnchor.fromRange(source, range).toSelector();
+      const rangeFound = TextQuoteAnchor.fromSelector(source, selector).toRange();
+      if (rangeFound) ranges.push([rangeFound, "quotehypo"]);
+      if (elem) elem.innerText = JSON.stringify(selector, null, 4);
+    } catch (e) {
+      console.error("TextQuoteSelectorHypothesis error: ", e);
+      if (elem) elem.innerText = "TextQuoteSelectorHypothesis error: " +  e;
+    }
+
     elem = document.getElementById("selector-out-textquote");
-    if (elem) elem.innerText = JSON.stringify(selector, null, 4);
-
-    selector = await describeRange(range);
-    matchAll = createMatcher(selector);
-    for await (const range of matchAll(source)) {
-      ranges.push(range);
+    try {
+      selector = await describeTextQuote(range, source, {
+        minimumQuoteLength: 10,
+      });
+      matchAll = createMatcher(selector);
+      for await (const range of matchAll(source)) {
+        ranges.push([range, "quote"]);
+      }
+      if (elem) elem.innerText = JSON.stringify(selector, null, 4);
+    } catch (e) {
+      console.error("TextQuoteSelector error: ", e);
+      if (elem) elem.innerText = "TextQuoteSelector error: " +  e;
     }
+
+
+
     elem = document.getElementById("selector-out-range");
-    if (elem) elem.innerText = JSON.stringify(selector, null, 4);
-
-    selector = await describeRangeCssSelector(range);
-    matchAll = createMatcher(selector);
-    for await (const range of matchAll(source)) {
-      ranges.push(range);
+    try {
+      selector = await describeRange(range);
+      matchAll = createMatcher(selector);
+      for await (const range of matchAll(source)) {
+        ranges.push([range, "range"]);
+      }
+      if (elem) elem.innerText = JSON.stringify(selector, null, 4);
+    } catch (e) {
+      console.error("RangeSelector error: ", e);
+      if (elem) elem.innerText = "RangeSelector error: " +  e;
     }
+
     elem = document.getElementById("selector-out-rangecss");
-    if (elem) elem.innerText = JSON.stringify(selector, null, 4);
+    try {
+      selector = await describeRangeCssSelector(range);
+      matchAll = createMatcher(selector);
+      for await (const range of matchAll(source)) {
+        ranges.push([range, "rangecss"]);
+      }
+      if (elem) elem.innerText = JSON.stringify(selector, null, 4);
+    } catch (e) {
+      console.error("RangeCss error: ", e);
+      if (elem) elem.innerText = "RangeCss error: " +  e;
+    }
 
-    if (!ranges.length) anchor(undefined);
+    cleanup();
+    // if (!ranges.length) anchor(undefined);
 
-    console.log(`There are ${ranges.length} ranges found on 4 selectors`);
-    for (const range of ranges) {
-      anchor(range);
+    console.log(`There are ${ranges.length} ranges found on 6 selectors`);
+    elem = document.getElementById("results") as HTMLElement;
+    elem.innerText = `There are ${ranges.length} ranges found on 6 selectors. `;
+    //    elem.innerText += areRangesEqual(ranges) ? "All Ranges are equal" : "Not all Ranges are equal !!";
+
+    for (const [range, id] of ranges) {
+      console.log("highlight this Range: ", range);
+      anchor(range, id);
     }
   }
-}
-document.addEventListener("selectionchange", onSelectionChange);
+}, 500);
+document.addEventListener("selectionchange", debounceOnSelectionChange);
