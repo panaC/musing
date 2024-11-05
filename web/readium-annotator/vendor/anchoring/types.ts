@@ -12,10 +12,10 @@ import type {
   RangeSelector,
   TextPositionSelector,
   TextQuoteSelector,
-} from './api';
-import { matchQuote } from './match-quote';
-import { TextRange, TextPosition } from './text-range';
-import { nodeFromXPath, xpathFromNode } from './xpath';
+} from './api.js';
+import { matchQuote } from './match-quote.js';
+import { TextRange, TextPosition } from './text-range.js';
+import { nodeFromXPath, xpathFromNode } from './xpath.js';
 
 /**
  * Converts between `RangeSelector` selectors and `Range` objects.

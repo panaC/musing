@@ -1,4 +1,4 @@
-import { trimRange } from './trim-range';
+import { trimRange } from './trim-range.js';
 
 /**
  * Return the combined length of text nodes contained in `node`.

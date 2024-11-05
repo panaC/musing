@@ -1,31 +1,18 @@
-import {
-  makeCreateRangeSelectorMatcher,
-  createTextQuoteSelectorMatcher,
-  describeTextQuote,
-  createTextPositionSelectorMatcher,
-  createCssSelectorMatcher,
-  describeTextPosition,
-  describeCss,
-  normalizeRange,
-  toRange,
-  ownerDocument,
-} from "@apache-annotator/dom";
 
-import * as aa from "@apache-annotator/dom";
+import { makeCreateRangeSelectorMatcher } from "../vendor/apache-annotator/dom/range/match.js";
+import { createTextQuoteSelectorMatcher } from "../vendor/apache-annotator/dom/text-quote/match.js";
+import { createTextPositionSelectorMatcher } from "../vendor/apache-annotator/dom/text-position/match.js";
+import { describeTextQuote } from "../vendor/apache-annotator/dom/text-quote/describe.js";
+import { describeTextPosition } from "../vendor/apache-annotator/dom/text-position/describe.js";
+import { createCssSelectorMatcher, describeCss } from "../vendor/apache-annotator/dom/css.js";
+import { normalizeRange } from "../vendor/apache-annotator/dom/normalize-range.js";
+import { toRange } from "../vendor/apache-annotator/dom/to-range.js";
+import { ownerDocument } from "../vendor/apache-annotator/dom/owner-document.js";
 
 import { finder } from "@medv/finder";
 
-import {
-  makeRefinable,
-  // type Selector,
-  type TextQuoteSelector,
-  type RangeSelector,
-  type CssSelector,
-  Matcher,
-} from "@apache-annotator/selector";
-
-
-
+import { makeRefinable } from "../vendor/apache-annotator/selector/refinable.js";
+import { type Matcher, type TextQuoteSelector, type RangeSelector, type CssSelector, type Selector, TextPositionSelector } from "../vendor/apache-annotator/selector/types.js";
 
 import { anchor, cleanup } from "./highlight.mjs";
 
@@ -33,20 +20,7 @@ import { TextQuoteAnchor, TextPositionAnchor } from "../vendor/anchoring/types.j
 
 import { xpathFromNode, nodeFromXPath } from "../vendor/anchoring/xpath.js";
 
-
-interface Selector {
-  /**
-   * A Selector can be refined by another Selector.
-   *
-   * See {@link https://www.w3.org/TR/2017/REC-annotation-model-20170223/#refinement-of-selection
-   * | §4.2.9 Refinement of Selection} in the Web Annotation Data Model.
-   *
-   * Corresponds to RDF property {@link http://www.w3.org/ns/oa#refinedBy}
-   */
-  refinedBy?: Selector;
-}
-
-interface XPathSelector extends Selector {
+interface XPathSelector<T = undefined> extends Selector<T> {
   type: "XPathSelector";
   value: string;
 }
@@ -85,26 +59,6 @@ preElements.forEach(function(preElement) {
   preElement.parentNode!.insertBefore(button, preElement);
 });
 
-
-/*
-
-  if (ranges.length < 2) return false;
-  const rangeA = ranges[0];
-
-  for (const rangeB of  ranges.slice(1)) {
-    if (
-      rangeA.startContainer === rangeB.startContainer &&
-      rangeA.startOffset === rangeB.startOffset &&
-      rangeA.endContainer === rangeB.endContainer &&
-      rangeA.endOffset === rangeB.endOffset &&
-      rangeA.commonAncestorContainer === rangeB.commonAncestorContainer
-    ) continue;
-    else return false;
-  }
-  return true;
-}
-*/
-
 function debounce(func: any, timeout: any) {
   let timer: any;
   return (...args: any[]) => {
@@ -118,13 +72,14 @@ function debounce(func: any, timeout: any) {
 
 function createXPathSelectorMatcher(
   selector: XPathSelector,
-): Matcher<Node | Range, Element> {
-  return async function* matchAll(scope: Element) {
+): Matcher<Node | Range, Node> {
+  return async function* matchAll(scope) {
     const scopeRange = toRange(scope);
     const document = ownerDocument(scopeRange);
-    const element = nodeFromXPath(selector.value, scope);
+    const scopeRangeElement = scopeRange.commonAncestorContainer as HTMLElement;
+    const element = nodeFromXPath(selector.value, scopeRangeElement);
 		console.log("XPath node found :", element);
-    if (!element) return ;
+    if (!element) throw new Error("XPath node not found !:") ;
     const range = document.createRange();
     range.selectNode(element);
 
@@ -144,7 +99,7 @@ const createMatcher = makeRefinable((selector: any) => {
     TextPositionSelector: createTextPositionSelectorMatcher,
     CssSelector: createCssSelectorMatcher,
     XPathSelector: createXPathSelectorMatcher,
-    RangeSelector: makeCreateRangeSelectorMatcher(createMatcher),
+    RangeSelector: makeCreateRangeSelectorMatcher(createMatcher as any),
   }[selector.type];
 
   if (!innerCreateMatcher) {
@@ -154,7 +109,7 @@ const createMatcher = makeRefinable((selector: any) => {
   return innerCreateMatcher(selector);
 });
 
-const describeRange = async (range: Range): Promise<RangeSelector> => {
+const describeRange = async (range: Range): Promise<RangeSelector<any> | undefined> => {
   const rangeNormalize = normalizeRange(range);
 
   const startIsElement =
@@ -240,7 +195,7 @@ const describeRange = async (range: Range): Promise<RangeSelector> => {
   };
 };
 
-const describeRangeCssSelector = async (range: Range): Promise<CssSelector> => {
+const describeRangeCssSelector = async (range: Range): Promise<CssSelector | undefined> => {
   const rangeNormalize = normalizeRange(range);
 
   const commonAncestorHTMLElement =
@@ -300,7 +255,7 @@ const debounceOnSelectionChange = debounce(async function onSelectionChange() {
     const range = selection.getRangeAt(i);
     let selector: any;
     let elem: HTMLElement | null;
-    let selectorToHighlight: Selector;
+    // let selectorToHighlight: Selector;
     let matchAll: any;
     const ranges = [];
 
@@ -309,7 +264,7 @@ const debounceOnSelectionChange = debounce(async function onSelectionChange() {
       selector = await describeTextPosition(range, source);
       matchAll = createMatcher(selector);
       for await (const range of matchAll(source)) {
-        ranges.push([range, "pos"]);
+        ranges.push([range, "textposition"]);
       }
       if (elem) elem.innerText = JSON.stringify(selector, null, 4);
     } catch (e) {
@@ -322,7 +277,7 @@ const debounceOnSelectionChange = debounce(async function onSelectionChange() {
 
       selector = TextQuoteAnchor.fromRange(source, range).toPositionAnchor().toSelector();
       const rangeFound = TextPositionAnchor.fromSelector(source, selector).toRange();
-      if (rangeFound) ranges.push([rangeFound, "poshypo"]);
+      if (rangeFound) ranges.push([rangeFound, "textposition-hypothesis"]);
       if (elem) elem.innerText = JSON.stringify(selector, null, 4);
     } catch (e) {
       console.error("TextPositionSelectorHypothesis error: ", e);
@@ -334,7 +289,7 @@ const debounceOnSelectionChange = debounce(async function onSelectionChange() {
 
       selector = TextQuoteAnchor.fromRange(source, range).toSelector();
       const rangeFound = TextQuoteAnchor.fromSelector(source, selector).toRange();
-      if (rangeFound) ranges.push([rangeFound, "quotehypo"]);
+      if (rangeFound) ranges.push([rangeFound, "quoteposition-hypothesis"]);
       if (elem) elem.innerText = JSON.stringify(selector, null, 4);
     } catch (e) {
       console.error("TextQuoteSelectorHypothesis error: ", e);
@@ -348,7 +303,7 @@ const debounceOnSelectionChange = debounce(async function onSelectionChange() {
       });
       matchAll = createMatcher(selector);
       for await (const range of matchAll(source)) {
-        ranges.push([range, "quote"]);
+        ranges.push([range, "textquote"]);
       }
       if (elem) elem.innerText = JSON.stringify(selector, null, 4);
     } catch (e) {
@@ -400,9 +355,10 @@ const debounceOnSelectionChange = debounce(async function onSelectionChange() {
     cleanup();
     // if (!ranges.length) anchor(undefined);
 
-    console.log(`There are ${ranges.length} ranges found on 7 selectors`);
+    const txt = `There are ${ranges.length} ranges found [ ${ranges.map(([, v]) => v).join(", ")} ] on 7 selectors`;
+    console.log(txt);
     elem = document.getElementById("results") as HTMLElement;
-    elem.innerText = `There are ${ranges.length} ranges found on 7 selectors. `;
+    elem.innerText = txt;
     //    elem.innerText += areRangesEqual(ranges) ? "All Ranges are equal" : "Not all Ranges are equal !!";
 
 		for (const [range, id] of ranges) {
@@ -441,7 +397,6 @@ const debounceInputChange = debounce(async (e: any) => {
 	elem.innerText = "";
 
 	elem = document.getElementById("selector-out-textquote")as HTMLElement;
-
 	elem.innerText = "";
 
 	elem = document.getElementById("selector-out-textquote-hypo")as HTMLElement;
@@ -452,9 +407,13 @@ const debounceInputChange = debounce(async (e: any) => {
 
 	elem = document.getElementById("selector-out-textposition") as HTMLElement;
 	elem.innerText = "";
+
+  elem = document.getElementById("selector-out-rangexpath") as HTMLElement;
+  elem.innerText = "";
+
 	const matchAll = createMatcher(selectorParsed);
 	for await (const range of matchAll(source)) {
-		anchor(range, "custom");
+		anchor(range as Range, "custom");
 	}
 
 

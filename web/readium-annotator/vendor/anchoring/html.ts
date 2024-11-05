@@ -4,13 +4,13 @@ import type {
   Selector,
   TextPositionSelector,
   TextQuoteSelector,
-} from './api';
+} from './api.js';
 import {
   MediaTimeAnchor,
   RangeAnchor,
   TextPositionAnchor,
   TextQuoteAnchor,
-} from './types';
+} from './types.js';
 
 type Options = {
   hint?: number;

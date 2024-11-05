@@ -6,11 +6,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "build": "npm run tsc && npm run esbuild",
-    "esbuild": "esbuild build/demo/index.mjs --bundle --format=esm --target=esnext --outfile=build/index.js",
-    "serve": "python3 -m http.server --protocol HTTP/1.1",
+    "esbuild": "esbuild build/demo/index.mjs --bundle --format=esm --target=esnext --outfile=web/index.js && cp demo/index.html web/index.html",
+    "serve": "cd web && python3 -m http.server --protocol HTTP/1.1",
     "publish": "surge . accidental-shame.surge.sh",
     "dev": "concurrently \"tsc --watch\" \"esbuild --cache\" \"npm run serve\"",
-    "clean": "rm -rf build"
+    "clean": "rm -rf build web"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +22,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "@apache-annotator/dom": "^0.2.0",
-    "@apache-annotator/selector": "^0.2.0",
     "@medv/finder": "^3.2.0"
-  }
+  },
+  "type": "module"
 }
