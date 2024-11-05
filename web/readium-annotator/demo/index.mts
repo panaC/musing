@@ -51,9 +51,43 @@ interface XPathSelector extends Selector {
   value: string;
 }
 
+function copyPreContent(event: any) {
+  // Get the pre element containing the text to be copied
+  var preElement = event.target.nextSibling;
+  while (preElement && preElement.nodeName !== 'PRE') {
+    preElement = preElement.nextSibling;
+  }
+  if (!preElement) return;
+
+  // Get the text to be copied
+  var text = JSON.stringify(JSON.parse(preElement.textContent), null, 4);
+
+  // Copy the text to the clipboard using the Clipboard API
+  navigator.clipboard.writeText(text).then(function() {
+    // Display a message indicating that the text was copied successfully
+    alert('Text copied to clipboard');
+  }, function(err) {
+    // Display an error message if there was a problem copying the text
+    console.error('There was an error copying the text: ', err);
+  });
+}
+
+// Get all pre elements in the body
+var preElements = document.body.querySelectorAll('pre');
+
+// Add a copy button to just before each pre element
+preElements.forEach(function(preElement) {
+  // Create a button element
+  var button = document.createElement('button');
+  button.innerHTML = '<i class="fa fa-clipboard" aria-hidden="true"></i> Copy';
+  button.onclick = copyPreContent;
+  // Add the button just before the pre element
+  preElement.parentNode!.insertBefore(button, preElement);
+});
+
 
 /*
-function areRangesEqual(ranges: Range[]) {
+
   if (ranges.length < 2) return false;
   const rangeA = ranges[0];
 
@@ -85,19 +119,18 @@ function debounce(func: any, timeout: any) {
 function createXPathSelectorMatcher(
   selector: XPathSelector,
 ): Matcher<Node | Range, Element> {
-  return async function* matchAll(scope: Node | Range) {
-    scope = toRange(scope);
-    const document = ownerDocument(scope);
-		const source = document.getElementById("source") as HTMLElement;
-    const element = nodeFromXPath(selector.value, source);
+  return async function* matchAll(scope: Element) {
+    const scopeRange = toRange(scope);
+    const document = ownerDocument(scopeRange);
+    const element = nodeFromXPath(selector.value, scope);
 		console.log("XPath node found :", element);
     if (!element) return ;
     const range = document.createRange();
     range.selectNode(element);
 
     if (
-      scope.isPointInRange(range.startContainer, range.startOffset) &&
-      scope.isPointInRange(range.endContainer, range.endOffset)
+      scopeRange.isPointInRange(range.startContainer, range.startOffset) &&
+      scopeRange.isPointInRange(range.endContainer, range.endOffset)
     ) {
       yield element;
     }
@@ -137,6 +170,12 @@ const describeRange = async (range: Range): Promise<RangeSelector> => {
     return undefined;
   }
 
+  const startContainerChildTextNodeIndex =
+    Array.from(startContainerHTMLElement.childNodes).indexOf(rangeNormalize.startContainer as ChildNode);
+  if (startContainerChildTextNodeIndex < -1) {
+    return undefined;
+  }
+
   const endIsElement = range.endContainer.nodeType === Node.ELEMENT_NODE;
   if (endIsElement) {
     return undefined;
@@ -149,6 +188,12 @@ const describeRange = async (range: Range): Promise<RangeSelector> => {
     return undefined;
   }
 
+  const endContainerChildTextNodeIndex =
+    Array.from(endContainerHTMLElement.childNodes).indexOf(rangeNormalize.startContainer as ChildNode);
+  if (endContainerChildTextNodeIndex < -1) {
+    return undefined;
+  }
+
   const startAndEndEqual =
     startContainerHTMLElement === endContainerHTMLElement;
   const startContainerHTMLElementCssSelector = finder(
@@ -158,33 +203,40 @@ const describeRange = async (range: Range): Promise<RangeSelector> => {
     ? startContainerHTMLElementCssSelector
     : finder(endContainerHTMLElement);
 
+  const startTextPositionSelector = {
+    type: "TextPositionSelector",
+    start: rangeNormalize.startOffset,
+    end: startAndEndEqual
+    ? rangeNormalize.endOffset
+    : rangeNormalize.startContainer.data.length,
+  };
+
+  const endTextPositionSelector = {
+    type: "TextPositionSelector",
+    start: rangeNormalize.endOffset,
+    end: rangeNormalize.endContainer.data.length,
+  };
+
   return {
     type: "RangeSelector",
     startSelector: {
       type: "CssSelector",
       value: startContainerHTMLElementCssSelector,
-      refinedBy: {
-        type: "TextPositionSelector",
-        start: rangeNormalize.startOffset,
-        end: startAndEndEqual
-          ? rangeNormalize.endOffset
-          : rangeNormalize.startContainer.data.length,
-      },
+      refinedBy: startContainerChildTextNodeIndex > 0 ? {
+        type: "XPathSelector",
+        value: "/text()[" + startContainerChildTextNodeIndex + "]",
+        refinedBy: startTextPositionSelector,
+      } : startTextPositionSelector,
     },
     endSelector: {
       type: "CssSelector",
       value: endContainerHTMLElementCssSelector,
-      refinedBy: {
-        type: "TextPositionSelector",
-        start: rangeNormalize.endOffset,
-        end: rangeNormalize.endContainer.data.length,
-      },
+      refinedBy: endContainerChildTextNodeIndex > 0 ? {
+        type: "XPathSelector",
+        value: "/text()[" + endContainerChildTextNodeIndex + "]",
+        refinedBy: endTextPositionSelector,
+      } : endTextPositionSelector,
     },
-    // refinedBy: {
-    //   type: "TextPositionSelector",
-    //   start: rangeNormalize.startOffset,
-    //   end: rangeNormalize.endOffset,
-    // },
   };
 };
 
@@ -350,7 +402,7 @@ const debounceOnSelectionChange = debounce(async function onSelectionChange() {
 
     console.log(`There are ${ranges.length} ranges found on 7 selectors`);
     elem = document.getElementById("results") as HTMLElement;
-    elem.innerText = `There are ${ranges.length} ranges found on 6 selectors. `;
+    elem.innerText = `There are ${ranges.length} ranges found on 7 selectors. `;
     //    elem.innerText += areRangesEqual(ranges) ? "All Ranges are equal" : "Not all Ranges are equal !!";
 
 		for (const [range, id] of ranges) {
