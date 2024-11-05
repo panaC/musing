@@ -489,17 +489,38 @@ textarea {
             <pre id="selector-out-textposition"></pre>
           </div>
 
+					<div>
+						<label for="selector-out-textposition-hypo">TextPositionSelector (Hypothesis) : </label>
+						<pre id="selector-out-textposition-hypo"></pre>
+					</div>
+					<div>
+						<label for="selector-out-range">RangeSelector : </label>
+						<pre id="selector-out-range"></pre>
+					</div>
+					<div>
+						<label for="selector-out-rangecss">RangeCssSelector : </label>
+						<pre id="selector-out-rangecss"></pre>
+					</div>
           <div>
-            <label for="selector-out-textposition-hypo">TextPositionSelector (Hypothesis) : </label>
-            <pre id="selector-out-textposition-hypo"></pre>
-          </div>
-          <div>
-            <label for="selector-out-range">RangeSelector : </label>
-            <pre id="selector-out-range"></pre>
-          </div>
-          <div>
-            <label for="selector-out-rangecss">RangeCssSelector : </label>
-            <pre id="selector-out-rangecss"></pre>
+						<label for="selector-out-rangexpath">RangeXpathSelector : </label>
+						<pre id="selector-out-rangexpath"></pre>
+					</div>
+					<div>
+						<style>
+#input {
+	width: 700px; /* Sets the width to 100% of the parent container */
+	height: 300px; /* Sets the height to 300px */
+	box-sizing: border-box; /* Ensures padding and border are included in the width and height */
+	padding: 10px; /* Optional: Adds padding for better appearance */
+	border: 1px solid #ccc; /* Optional: Adds a border for better appearance */
+	overflow-y: auto; /* Adds a vertical scrollbar if the content exceeds the height */
+}
+						</style>
+						<label for="input">Enter a custom selector : </label>
+						<br/>
+						<textarea id="input"></textarea>
+						<br/>
+						<button id="inputButton">apply</button>
           </div>
           <div>
             <pre id="results"></pre>
