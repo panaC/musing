@@ -2094,7 +2094,7 @@ var debounceOnSelectionChange = debounce(async function onSelectionChange() {
         elem.innerText = "RangeXpath error: " + e;
     }
     cleanup();
-    const txt = `There are ${ranges.length} ranges found ( ${ranges.map(([, v]) => v).join(", ")} )on 7 selectors`;
+    const txt = `There are ${ranges.length} ranges found [ ${ranges.map(([, v]) => v).join(", ")} ] on 7 selectors`;
     console.log(txt);
     elem = document.getElementById("results");
     elem.innerText = txt;
