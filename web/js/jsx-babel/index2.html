@@ -1,0 +1,53 @@
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel" data-type="module" defer> 
+import * as React from 'https://esm.sh/react';
+import { createRoot } from 'https://esm.sh/react-dom/client';
+
+let _ref;
+const Password1 = () => {
+    const [seePassword, setSeePassword] = React.useState(true);
+    const inputRef = React.useRef();
+    return <>
+        <input
+            type={seePassword ? "text" : "password"}
+            value={"Hello World"}
+            ref={(ref) => {
+              if (!_ref) {
+                _ref = ref
+              }
+              console.log("refChanged?", ref !== _ref);
+            }}
+        />
+        <button
+            type="button"
+            onClick={() => {
+              setSeePassword(!seePassword);
+            }}
+        >
+        { seePassword ? "HIDE" : "SHOW" }
+        </button>
+    </>
+}
+
+const Password2 = () => {
+    const inputRef = React.useRef();
+    return <>
+        <input
+            type="text"
+            value="Hello World"
+            ref={inputRef}
+        />
+        <button
+            type="button"
+            onClick={() => {
+              inputRef.current.type = inputRef.current.type === "password" ? "test" : "password";
+            }}
+        >
+        SVG 
+        </button>
+    </>
+}
+const app = document.getElementById("app");
+createRoot(app).render(<><Password1/><br/><Password2/></>);
+</script>
+<div id="app"/> 
